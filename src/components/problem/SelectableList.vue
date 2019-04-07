@@ -31,14 +31,13 @@
       lineSize: { //  under line 굵기
         required: true
       },
-      selectedIndex: { // 초기 선택 index - 초기에만 사용되고 변경 되어도 영향을 받지 않음
+      selectedIndex: { // 선택된 item 의 index
         type: Number,
-        default: 0
+        required: true
       }
     },
     data () {
       return {
-        local_selectedIndex: this.selectedIndex, // 선택된 아이템의 index
         hoverItemIndex: -1, // hover 된 아이템의 index
         blankLine: { // 선택되지 않았을 때 보여질 투명 라인
           borderBottom: this.lineSize + " solid #00000000"
@@ -50,7 +49,6 @@
     },
     methods: {
       clickItem (selectedItem, index) {
-        this.local_selectedIndex = index;
         this.$emit('selectChange', selectedItem, index);
       },
       updateHoverState (index, isHover) {
@@ -61,7 +59,7 @@
         }
       },
       isHighlighted (index) { // 선택 됐거나 hover 됐거나 값
-        return index === this.local_selectedIndex || index === this.hoverItemIndex;
+        return index === this.selectedIndex || index === this.hoverItemIndex;
       },
       getLineStyle (index) {
         return this.isHighlighted(index) ? this.underLine : this.blankLine;
