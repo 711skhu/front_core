@@ -15,3 +15,7 @@ yarn-error.log
 node_modules/
 
 package-lock.json
+
+# 다른 모듈 무시
+src/admin*
+src/pc*
