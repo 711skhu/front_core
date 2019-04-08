@@ -1,8 +1,8 @@
 <template>
   <selectable-list
     :items="items"
-    :selectedIndex="selectedIndex"
-    lineColor="black"
+    :selected-index="selectedIndex"
+    line-color="black"
     line-size="0.2em"
     @selectChange="selectChange"
   >

@@ -1,10 +1,10 @@
 <template>
-  <div class="list">
+  <div class="selectable-list">
     <div
       v-for="(item, index) in items"
       :key="index"
       :style="getLineStyle(index)"
-      class="itemContainer"
+      class="selectable-list__item"
       @click.stop="clickItem(item, index)"
       @mouseenter="updateHoverState(index, true)"
       @mouseleave="updateHoverState(index, false)"
@@ -13,7 +13,6 @@
         <!-- 대체 컨텐츠 -->
       </slot>
     </div>
-    <div style="clear:both"></div> <!-- float: left 로 인한 태그 및 스타일 -->
   </div>
 </template>
 
@@ -72,9 +71,14 @@
 </script>
 
 <style scoped>
-  .itemContainer {
-    float: left;
-    margin-left: 0.8em;
+  .selectable-list {
+    display: flex;
+  }
+  .selectable-list__item {
+    flex: initial;
     margin-right: 0.8em;
+  }
+  .selectable-list__item:last-child {
+    margin-right: 0;
   }
 </style>
