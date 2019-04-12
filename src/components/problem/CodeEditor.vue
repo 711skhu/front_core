@@ -1,5 +1,11 @@
 <template>
-  <div id="code_editor"></div>
+  <!-- ace editor 를 사용하기 위한 id 사용 -->
+  <div
+    id="code-editor"
+    class="code-editor"
+  >
+
+  </div>
 </template>
 
 <script>
@@ -28,7 +34,7 @@
     },
     mounted () {
       // 실제 태그가 생성되어야 editor 적용 가능하기 때문에 mounted 에 작성
-      this.editor = ace.edit("code_editor", {
+      this.editor = ace.edit("code-editor", {
         theme: this.$_codeEditor_getTheme(this.theme),
         mode: this.$_codeEditor_getMode(this.mode)
       });
@@ -63,8 +69,10 @@
 </script>
 
 <style scoped>
-  #code_editor {
+  .code-editor {
     width: 100%;
     height: 100%;
+
+    font-size: 1.1rem;
   }
 </style>
