@@ -1,0 +1,12 @@
+.markdown-light {
+}
+
+.markdown-light table {
+  background-color: ghostwhite;
+  border-collapse: collapse;
+}
+
+.markdown-light th, .markdown-light td {
+  border-top: 0.15em solid lightsteelblue;
+  padding: 0.5em;
+}
