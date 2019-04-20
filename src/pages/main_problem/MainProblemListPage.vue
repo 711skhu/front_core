@@ -32,7 +32,10 @@ export default {
                 title: '1차 구현시험',
                 limit_date: new Date().toLocaleString(),
                 context: '실습, 과제, 시험에 대한 특이 사항을 기재합니다.',
-                type: 'EXAM', // TRAIN 은 실습, HOMEWORK 는 과제, EXAM 는 구현 시험입니다.
+                type: {
+                    value: 'EXAM', // TRAIN 은 실습, HOMEWORK 는 과제, EXAM 는 구현 시험입니다.
+                    label: '구현시험'
+                },
                 problems: [ // problems 는 소단락 문제(일명 새끼 문제)들 목록입니다.
                     {
                         id: 1,
