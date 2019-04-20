@@ -2,34 +2,24 @@
     <sui-segment :color="top_color" clearing>
         <h2 is="sui-header" floated="left">
             {{ problem.title }}
-            <sui-header-subheader v-if="time_confirm.checked">
-                <sui-icon name="users" /> 
-                <sui-header-content>
-                    {{ problem.upload_cnt }} 명 제출 했습니다.
-                </sui-header-content>
-            </sui-header-subheader>
-            <sui-header-subheader v-else>
-                <sui-icon name="clock outline" /> 
-                <sui-header-content>
-                    {{ problem.reserve_date.toLocaleString() }}
-                </sui-header-content>
-            </sui-header-subheader>
+            <detail-unit
+                :checked="time_confirm.checked"
+                :upload_cnt="problem.upload_cnt"
+                :reserve_date="problem.reserve_date"
+            ></detail-unit>
         </h2>
-        <h2 is="sui-header" floated="right" text-align="center">
-            <div v-if="time_confirm.checked">
-                {{ my_score }} / {{ problem.full_score }}
-            </div>
-            <div v-else>
-                {{ problem.full_score }} pt
-            </div>
-            <sui-header-subheader>
-                <sui-button :content="time_confirm.context" :color="time_confirm.color" @click="time_confirm.action" />
-            </sui-header-subheader>
-        </h2>
+        <score-unit 
+            :my_score="my_score"
+            :full_score="problem.full_score"
+            :time_confirm="time_confirm"
+        ></score-unit>
     </sui-segment>
 </template>
 
 <script>
+import ScoreUnit from './ScoreUnit';
+import DetailUnit from './DetailUnit';
+
 export default {
     name: 'main-element',
     props: ['problem', 'type', ],
@@ -37,6 +27,9 @@ export default {
         return {
             my_score: 10, // 각 개인의 점수는 AJAX 를 사용해서 불러온다고 가정합니다.
         }
+    },
+    components: {
+        ScoreUnit, DetailUnit
     },
     computed: {
         top_color() {

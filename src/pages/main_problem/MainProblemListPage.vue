@@ -30,7 +30,6 @@ export default {
         return {
             examination: {
                 title: '1차 구현시험',
-                limit_date: new Date().toLocaleString(),
                 context: '실습, 과제, 시험에 대한 특이 사항을 기재합니다.',
                 type: {
                     value: 'EXAM', // TRAIN 은 실습, HOMEWORK 는 과제, EXAM 는 구현 시험입니다.
@@ -77,7 +76,7 @@ export default {
                         title: 'Python Lambda',
                         upload_cnt: 13,
                         full_score: 20,
-                        reserve_date: new Date(2019, 3, 21, 0, 0, 0),
+                        reserve_date: new Date(2019, 3, 21, 2, 30, 0),
                     },
                     {
                         id: 7,
