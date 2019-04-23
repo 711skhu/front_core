@@ -1,45 +1,75 @@
 <template>
   <div class="ui middle aligned divided list">
-    <div class="item margin-left-30">
+    <div class="item margin-left-150 margin-right-150">
       <a>
-        <div class="content">
-          <div class="header">알고리즘</div>
-          <h5>이승진</h5>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" name="public">
-            <label>활성화</label>
-          </div>
-        </div>
+          <h3 class="ui header padding-24">
+            <div class="content">
+              알고리즘
+              <div class="sub header"> 이승진 </div>
+            </div>
+            <div class="ui toggle checkbox right">
+              <input type="checkbox" name="public">
+              <label></label>
+            </div>
+          </h3>
       </a>
     </div>
-    <div class="item margin-left-30">
+    <div class="item margin-left-150 margin-right-150">
       <a>
-        <div class="content">
-          <div class="header">운영체제</div>
-          <h5>유상신</h5>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" name="public">
-            <label>활성화</label>
-          </div>
-        </div>
+          <h3 class="ui header padding-24">
+            <div class="content">
+              고급웹프로그래밍
+              <div class="sub header"> 이승진 </div>
+            </div>
+            <div class="ui toggle checkbox right">
+              <input type="checkbox" name="public">
+              <label></label>
+            </div>
+          </h3>
       </a>
-    </div><div class="item margin-left-30">
+    </div>
+    <div class="item margin-left-150 margin-right-150">
       <a>
-        <div class="content">
-          <div class="header">데이테베이스개론</div>
-          <h5>홍은지</h5>
-          <div class="ui toggle checkbox">
-            <input type="checkbox" name="public">
-            <label>활성화</label>
-          </div>
-        </div>
+          <h3 class="ui header padding-24">
+            <div class="content">
+              데이터베이스개론
+              <div class="sub header"> 홍은지 </div>
+            </div>
+            <div class="ui toggle checkbox right">
+              <input type="checkbox" name="public">
+              <label></label>
+            </div>
+          </h3>
+      </a>
+    </div>
+    <div class="item margin-left-150 margin-right-150">
+      <a>
+          <h3 class="ui header padding-24">
+            <div class="content">
+              C++프로그래밍
+              <div class="sub header"> 문성현 </div>
+            </div>
+            <div class="ui toggle checkbox right">
+              <input type="checkbox" name="public">
+              <label></label>
+            </div>
+          </h3>
       </a>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .margin-left-30 {
-    margin-left: 30px
+  .margin-left-150 {
+    margin-left: 150px
+  }
+  .margin-right-150 {
+    margin-right: 150px
+  }
+  .right {
+    float: right;
+  }
+  .padding-24 {
+    padding: 24px;
   }
 </style>
