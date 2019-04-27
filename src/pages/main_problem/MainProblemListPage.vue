@@ -2,15 +2,14 @@
     <div is="sui-container">
         <top-breadthumb :subject=" '알고리즘' " :exam_title="examination.title"></top-breadthumb>
         <main-title 
-            :type="examination.type"
             :title="examination.title"
-            :limit_date="examination.limit_date"
-            :context="examination.context"
+            :unit_type="examination.unit_type"
+            :description="examination.description"
         ></main-title>
         <main-element 
             :key="problem.id"
-            :problem="problem" 
-            :type="examination.type" 
+            :type_code="examination.unit_type.value"
+            :problem="problem"  
             v-for="problem in examination.problems"
         ></main-element>
     </div>
@@ -30,8 +29,8 @@ export default {
         return {
             examination: {
                 title: '1차 구현시험',
-                context: '실습, 과제, 시험에 대한 특이 사항을 기재합니다.',
-                type: {
+                description: '실습, 과제, 시험에 대한 특이 사항을 기재합니다.',
+                unit_type: {
                     value: 'EXAM', // TRAIN 은 실습, HOMEWORK 는 과제, EXAM 는 구현 시험입니다.
                     label: '구현시험'
                 },
@@ -41,7 +40,7 @@ export default {
                         title: 'JAVA ArrayList',
                         upload_cnt: 10, // 이는 서버에서 제출한 사람의 수를 카운팅하여 반환하여 목록에서 보여줌을 가정하고 컴포넌트에 렌더링합니다.
                         full_score: 10,
-                        reserve_date: new Date(2019, 3, 17, 18, 0, 0),
+                        reserve_date: new Date(2019, 3, 27, 16, 0, 0), // 제출 제한 기간은 문제 별로 다르게 책정했습니다. 제출 기한 날짜 별 Component State 를 확인하기 위함입니다.
                     },
                     {
                         id: 2,
@@ -75,7 +74,7 @@ export default {
                         id: 6,
                         title: 'Python Lambda',
                         upload_cnt: 13,
-                        full_score: 20,
+                        full_score: 10,
                         reserve_date: new Date(2019, 3, 21, 2, 30, 0),
                     },
                     {

@@ -6,7 +6,7 @@
                     <sui-icon name="archive" />
                     <sui-header-content>
                         {{ title }}
-                        <sui-header-subheader>{{ type.label }}</sui-header-subheader>
+                        <sui-header-subheader>{{ unit_type.label }}</sui-header-subheader>
                     </sui-header-content>
                 </h1>
             </sui-grid-column>
@@ -15,7 +15,7 @@
                     <sui-icon name="bell outline" />
                     <sui-header-content>특이사항</sui-header-content>
                 </h1>
-                <p>{{ context }}</p>
+                <p>{{ description }}</p>
             </sui-grid-column>
         </sui-grid>
     </div>
@@ -24,9 +24,20 @@
 <script>
 export default {
     name: 'main-title',
-    props: [
-        'title', 'limit_date', 'context', 'type',
-    ]
+    props: {
+        title: {
+            type: String,
+            required: true
+        }, 
+        description: {
+            type: String,
+            required: false
+        },
+        unit_type: {
+            type: Object,
+            required: true
+        }
+    },
 }
 </script>
 

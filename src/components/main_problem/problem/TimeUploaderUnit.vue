@@ -9,8 +9,21 @@
 
 <script>
 export default {
-    name: 'detail-unit',
-    props: ['checked', 'upload_cnt', 'reserve_date'],
+    name: 'time-uploader-unit',
+    props: {
+        checked: {
+            type: Boolean,
+            required: true,
+        },
+        upload_cnt: {
+            type: Number,
+            required: true,
+        },
+        reserve_date: {
+            type: Date,
+            required: true,
+        }
+    },
     computed: {
         output_context() {
             const { checked, upload_cnt, reserve_date } = this;
