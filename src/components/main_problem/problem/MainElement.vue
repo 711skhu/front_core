@@ -2,17 +2,13 @@
     <sui-segment :color="top_color" clearing>
         <h2 is="sui-header" floated="left">
             {{ problem.title }}
-            <time-uploader-unit
-                :checked="detail_data.checked"
-                :upload_cnt="problem.upload_cnt"
-                :reserve_date="problem.reserve_date"
+            <time-uploader-unit 
+                :uploader_props="detail_data.uploader_props"
             ></time-uploader-unit>
         </h2>
         <score-unit 
-            :my_score="my_score"
-            :full_score="problem.full_score"
-            :checked="detail_data.checked"
-            :btn_data="detail_data.btn_data"
+            :btn_props="detail_data.btn_props"
+            :score_props="detail_data.score_props"
         ></score-unit>
     </sui-segment>
 </template>
@@ -48,49 +44,80 @@ export default {
             if(my_score === null) { // 현재 학생이 맞은 점수가 없으면. 즉 안 풀었으면 회색.
                 return 'grey';
             } else if(now < problem.reserve_date) {
-                return 'yellow'; // 시험 종료 이전이면 색상을 공개 하지 않습니다.
+                return 'blue'; // 시험 종료 이전이면 색상을 공개 하지 않습니다. 대신에 제출을 했으면 파란색으로 표기합니다.
             } else { // 시험이 끝난 이후 점수가 나오면, 절반을 초과하면 초록색, 절반 이하는 빨간색으로 나오게 합니다.
                 return my_score / problem.full_score > 0.5 ? 'green' : 'red'; 
             }
         },
         detail_data() {
-            const { problem, type_code } = this;
+            const { my_score, problem, type_code } = this;
             const now = new Date();
-            const dist = problem.reserve_date.getTime() - now.getTime();
-            const detail_data = { 
-                checked : now >= problem.reserve_date, 
-            };
+            const start_time = problem.reserve_date.getTime() - 90 * 60 * 1000;
+            
+            let detail_data;
+            if(now >= problem.reserve_date){
+                detail_data = {
+                    uploader_props: {
+                        icon_name: 'users',
+                        description: `${ problem.upload_cnt } 명 제출했습니다.`
+                    },
+                }
+            } else {
+                detail_data = {
+                    uploader_props: {
+                        icon_name: 'clock outline',
+                        description: `${ new Date(start_time).toLocaleString() } 부터 진행`
+                    }, 
+                }
+            }
+
             switch(type_code){
                 case 'TRAIN' :
                     return Object.assign(detail_data, { 
-                        btn_data : {
+                        btn_props : {
                             color: 'grey', context: '실습하기', action: () => alert('실습 페이지 이동')
-                        }, 
+                        }
                     });
                 case 'HOMEWORK' :
-                    return Object.assign(detail_data, {
-                        btn_data : {
-                            color: now < problem.reserve_date ? 'blue' : 'red',
-                            context: now < problem.reserve_date ? '제출하기' : '제출 기한 초과', 
-                            action: now < problem.reserve_date ? () => alert('과제 제출 페이지') : () => alert('과제 제출을 못 합니다.')
+                    return Object.assign(detail_data, (now < problem.reserve_date) ? 
+                    {
+                        btn_props: {
+                            color: 'blue', context: '제출하기', action: () => alert('과제 제출 페이지')
                         },
+                        score_props: {
+                            label: '만점', context: problem.full_score
+                        }
+                    } :
+                    {
+                        btn_props: {
+                            color: 'red', context: '제출 기한 초과', action: () => alert('과제 제출을 못 합니다.')
+                        },
+                        score_props: {
+                            label: '내 점수 / 만점', context: `${ my_score } / ${ problem.full_score }`
+                        }
                     });
                 case 'EXAM' :
-                    return Object.assign(detail_data, {
-                        btn_data : {
-                            color: 
-                                (now < problem.reserve_date) ? 
-                                    (dist < 90 * 60 * 1000) ? 'green' : 'yellow' // 시험 종료 90분 전에 접속 가능하게 합니다. 아니면 노란 버튼으로 접속 불가를 표기합니다.
-                                : 'blue', // 시험이 끝난 뒤에는 성적 공개 버튼으로 바꿉니다.
-                            context: 
-                                (now < problem.reserve_date) ?
-                                    (dist < 90 * 60 * 1000) ? '시험 접속' : '접속 불가'
-                                : '점수 조회',
-                            action: 
-                                (now < problem.reserve_date) ?
-                                    (dist < 90 * 60 * 1000) ? () => alert('시험 접속 페이지') : () => alert('시험은 90분 이전에 시작 됩니다!')
-                                : () => alert('점수 조회 Collapse!'),
-                        },
+                    return Object.assign(detail_data, (now < problem.reserve_date) ?
+                    {
+                        btn_props : (now >= start_time) ? 
+                            {
+                                color: 'green', context: '시험 접속', action: () => alert('시험 접속 페이지')
+                            } :
+                            {
+                                color: 'yellow', context: '접속 불가', action: () => alert('시험은 90분 이전에 시작 됩니다!')
+                            }
+                        , 
+                        score_props: {
+                            label: '만점', context: problem.full_score
+                        }
+                    } :
+                    {
+                        btn_props: {
+                            color: 'blue', context: '점수 조회', action: () => alert('점수 조회 페이지')
+                        }, 
+                        score_props: {
+                            label: '내 점수 / 만점', context: `${ my_score } / ${ problem.full_score }`
+                        }
                     });
             }
         }

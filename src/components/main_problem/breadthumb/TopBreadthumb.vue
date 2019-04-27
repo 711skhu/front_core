@@ -13,7 +13,16 @@
 <script>
 export default {
     name: 'top-breadthumb',
-    props: ['subject', 'exam_title']
+    props: {
+        subject: {
+            type: String,
+            required: true
+        },
+        exam_title: {
+            type: String,
+            required: true
+        }
+    }
 };
 </script>
 

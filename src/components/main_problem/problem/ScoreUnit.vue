@@ -1,13 +1,13 @@
 <template>
     <sui-statistic size="tiny" floated="right">
         <sui-statistic-label>
-            {{ checked ? '내 점수 / 만점' : '만점' }}
+            {{ score_props.label }}
         </sui-statistic-label>
         <sui-statistic-value>
-            {{ checked ? `${ my_score }/${ full_score }` : full_score }}
+            {{ score_props.context }}
         </sui-statistic-value>
         <div class="button__margin">
-            <sui-button :content="btn_data.context" :color="btn_data.color" @click="btn_data.action" />
+            <sui-button :content="btn_props.context" :color="btn_props.color" @click="btn_props.action" />
         </div>
     </sui-statistic>
 </template>
@@ -16,19 +16,11 @@
 export default {
     name: 'score-unit',
     props: {
-        my_score: {
-            type: Number,
+        score_props: {
+            type: Object,
             required: false
         },
-        full_score: {
-            type: Number,
-            required: true
-        },
-        checked: {
-            type: Boolean,
-            required: true
-        },
-        btn_data: {
+        btn_props: {
             type: Object,
             required: true
         }
