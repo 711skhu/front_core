@@ -49,6 +49,7 @@
   .infobox {
     padding-right : 60px;
     padding-left : 100px;
+    padding-top : 20px;
   }
 
 </style>
