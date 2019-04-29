@@ -60,6 +60,12 @@
 </template>
 
 <style scoped>
+  .item:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+  }
+  .item:hover .content{
+    color: #0078FF;
+  }
   .margin-left-150 {
     margin-left: 150px
   }
