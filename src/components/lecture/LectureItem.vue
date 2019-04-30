@@ -1,53 +1,11 @@
 <template>
-  <div class="ui middle aligned divided list">
-    <div class="item margin-left-150 margin-right-150">
+  <div id="app" class="ui middle aligned divided list">
+    <div v-for="(item, index) in items" :key="index" class="item margin-left-150 margin-right-150" >
       <a>
           <h3 class="ui header padding-24">
             <div class="content">
-              알고리즘
-              <div class="sub header"> 이승진 </div>
-            </div>
-            <div class="ui toggle checkbox right">
-              <input type="checkbox" name="public">
-              <label></label>
-            </div>
-          </h3>
-      </a>
-    </div>
-    <div class="item margin-left-150 margin-right-150">
-      <a>
-          <h3 class="ui header padding-24">
-            <div class="content">
-              고급웹프로그래밍
-              <div class="sub header"> 이승진 </div>
-            </div>
-            <div class="ui toggle checkbox right">
-              <input type="checkbox" name="public">
-              <label></label>
-            </div>
-          </h3>
-      </a>
-    </div>
-    <div class="item margin-left-150 margin-right-150">
-      <a>
-          <h3 class="ui header padding-24">
-            <div class="content">
-              데이터베이스개론
-              <div class="sub header"> 홍은지 </div>
-            </div>
-            <div class="ui toggle checkbox right">
-              <input type="checkbox" name="public">
-              <label></label>
-            </div>
-          </h3>
-      </a>
-    </div>
-    <div class="item margin-left-150 margin-right-150">
-      <a>
-          <h3 class="ui header padding-24">
-            <div class="content">
-              C++프로그래밍
-              <div class="sub header"> 문성현 </div>
+              {{ item.title }}
+              <div class="sub header"> {{ item.professor }} </div>
             </div>
             <div class="ui toggle checkbox right">
               <input type="checkbox" name="public">
@@ -58,6 +16,22 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    props: {
+      items: {
+        type: Array,
+        required: true
+      }
+    },
+    data () {
+      return {
+
+      }
+    }
+  }
+</script>
 
 <style scoped>
   .item:hover {
