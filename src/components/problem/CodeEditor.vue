@@ -62,7 +62,7 @@
         this.$_codeEditor_setMode(newMode);
       },
       value(newValue) {
-        if (this.editor.getValue() !== newValue){
+        if (this.editor.getValue() !== newValue) {
           this.editor.setValue(newValue);
         }
       }

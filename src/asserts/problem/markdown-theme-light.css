@@ -1,4 +1,7 @@
 .markdown-light {
+  word-break: break-all;
+  font-size: 1.15rem;
+  margin: 0.8em;
 }
 
 .markdown-light table {

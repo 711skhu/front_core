@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <div v-html="compiledMarkdown"></div>
-  </div>
+  <div :class="themeClass" v-html="compiledMarkdown"></div>
 </template>
 
 <script>
@@ -9,14 +7,16 @@
 
   export default {
     props: {
-      markdown: {
+      value: {
         type: String,
         required: true
       }
     },
     computed: {
-      compiledMarkdown () {
-        return marked(this.markdown, { sanitize: true });
+      compiledMarkdown() {
+        return marked(this.value, {sanitize: true});
+      },
+      themeClass() {
       }
     }
   }

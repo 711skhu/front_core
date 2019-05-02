@@ -4,20 +4,16 @@
       <sui-tab-pane class="tab-content tab__pane" title="Write">
         <textarea
           class="tab-content__textarea"
-          :value="markdown"
+          :value="value"
           @input="update"
-        >
-
-        </textarea>
+        />
       </sui-tab-pane>
       <sui-tab-pane class="tab-content tab__pane" title="Preview">
-        <markdown-view
+        <problem-view
           class="tab-content__markdown-view"
           :theme="theme"
-          :markdown="markdown"
-        >
-
-        </markdown-view>
+          :value="value"
+        />
       </sui-tab-pane>
     </sui-tab>
   </div>
@@ -25,14 +21,13 @@
 
 <script>
   import * as _ from "lodash";
-  import * as Themes from "@/utils/Themes";
 
   import SuiTabPane from "semantic-ui-vue/dist/commonjs/modules/Tab/TabPane";
-  import MarkdownView from "@/components/problem/ThemedMarkdownView";
+  import ProblemView from "@/components/problem/ProblemView";
 
   export default {
     components: {
-      MarkdownView,
+      ProblemView,
       SuiTabPane
     },
     props: {
@@ -41,26 +36,14 @@
         required: true
       },
       theme: {
-        type: String,
-        default: "light",
-        required: false,
-        validator (value) {
-          return Themes.validate(["light", "dark"], value)
-        }
-      }
-    },
-    data () {
-      return {
-        markdown: JSON.parse(JSON.stringify(this.value))
+        type: Object,
+        required: false
       }
     },
     methods: {
       update: _.debounce(function (e) {
-        this.markdown = e.target.value;
-      }, 300),
-      getValue () {
-        return this.markdown;
-      }
+        this.$emit('input', e.target.value);
+      }, 300)
     }
   }
 </script>
@@ -70,6 +53,7 @@
     width: 100%;
     height: 100%;
   }
+
   .tab {
     width: 100%;
     height: 100%;
@@ -77,12 +61,15 @@
     display: flex;
     flex-direction: column;
   }
+
   .tab-content {
     display: flex !important;
   }
+
   .tab__pane {
     flex: auto
   }
+
   .tab-content__textarea {
     width: 100%;
     height: 100%;
@@ -102,6 +89,7 @@
 
     resize: none;
   }
+
   .tab-content__markdown-view {
     width: 100%;
     height: 100%;

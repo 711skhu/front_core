@@ -1,10 +1,10 @@
 <template>
   <sui-button-group>
     <sui-button basic
-      v-for="option in options"
-      :key="option.toString()"
-      :active="isActive(option)"
-      @click="onClick(option)">
+                v-for="option in options"
+                :key="option.toString()"
+                :active="isActive(option)"
+                @click="onClick(option)">
       {{ option.toString() }}
     </sui-button>
   </sui-button-group>
