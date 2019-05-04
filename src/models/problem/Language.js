@@ -2,6 +2,7 @@ const Language = Object.freeze({
   JAVA: Object.freeze({
     ace: "java",
     value: "java",
+    file: "Solution.java",
     toString() {
       return this.value
     }
@@ -9,6 +10,7 @@ const Language = Object.freeze({
   JAVASCRIPT: Object.freeze({
     ace: "javascript",
     value: "javascript",
+    file: "solution.js",
     toString() {
       return this.value
     }
@@ -16,6 +18,7 @@ const Language = Object.freeze({
   CPP: Object.freeze({
     ace: "c_cpp",
     value: "C++",
+    file: "solution.cpp",
     toString() {
       return this.value
     }
@@ -23,6 +26,7 @@ const Language = Object.freeze({
   PYTHON: Object.freeze({
     ace: "python",
     value: "python",
+    file: "solution,py",
     toString() {
       return this.value
     }
@@ -37,5 +41,7 @@ const Language = Object.freeze({
     return null;
   }
 });
+
+
 
 export default Language;

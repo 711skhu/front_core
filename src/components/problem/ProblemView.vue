@@ -24,5 +24,9 @@
 </script>
 
 <style scoped>
-
+  * {
+    word-break: break-all;
+    font-size: 1.15rem;
+    padding: 0.8em;
+  }
 </style>

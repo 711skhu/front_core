@@ -40,9 +40,18 @@
 <style scoped>
   .menu {
     margin: 0;
+    border-bottom-width: 0 !important;
   }
 
   .menu__item:hover {
     cursor: pointer;
+  }
+
+  .ui.secondary.pointing.menu .active.item {
+    border-bottom-width: 0.35rem;
+  }
+
+  .ui.secondary.pointing.menu .item {
+    border-bottom-width: 0.35rem;
   }
 </style>

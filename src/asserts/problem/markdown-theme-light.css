@@ -1,7 +1,4 @@
 .markdown-light {
-  word-break: break-all;
-  font-size: 1.15rem;
-  margin: 0.8em;
 }
 
 .markdown-light table {
@@ -10,6 +7,6 @@
 }
 
 .markdown-light th, .markdown-light td {
-  border-top: 0.15em solid lightsteelblue;
+  border-top: 0.1em solid lightsteelblue;
   padding: 0.5em;
 }
