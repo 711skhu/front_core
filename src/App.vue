@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <lecture-list></lecture-list>
+    <header-manu></header-manu>
   </div>
 </template>
 
 <script>
-  import LectureList from "@/sample/lecture/LectureListSample";
+  import HeaderManu from "@/components/header/HeaderManu";
 
   export default {
     components: {
-      LectureList
+      HeaderManu
     }
   }
 </script>
