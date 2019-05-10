@@ -1,20 +1,6 @@
 <template>
-  <div id="app">
-    <div class="margin-left-150 margin-right-150">
-      <lecture-list></lecture-list>
-    </div>
-  </div>
+  <div id="app"></div>
 </template>
-
-<script>
-  import LectureList from "@/components/lecture/LectureList";
-
-  export default {
-    components: {
-      LectureList
-    }
-  }
-</script>
 
 <style lang="less">
 #app {

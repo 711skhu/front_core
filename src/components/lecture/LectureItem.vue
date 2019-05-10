@@ -8,27 +8,7 @@
 </template>
 
 
-<!--
-  <div id="app" class="ui middle aligned divided list">
-    <div
-      v-for="(item, index) in items"
-      :key="index"
-      class="item margin-left-150 margin-right-150" >
-      <a>
-          <h3 class="ui header padding-24">
-            <div class="content">
-              {{ item.title }}
-              <div class="sub header"> {{ item.professor }} </div>
-            </div>
-            <div class="ui toggle checkbox right">
-              <input type="checkbox" name="public">
-              <label></label>
-            </div>
-          </h3>
-      </a>
-    </div>
-  </div>
--->
+
 
 <script>
 import LectureInfo from "@/components/lecture/LectureInfo"
