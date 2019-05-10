@@ -1,6 +1,4 @@
 <template>
-
-
       <a>
         <h3 class="ui header padding-24">
           <!--
@@ -59,21 +57,3 @@
   }
   */
 </script>
-<style>
-.item:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-}
-.item:hover .content{
-  color: #0078FF;
-}
-.margin-left-150 {
-  margin-left: 150px
-}
-.margin-right-150 {
-  margin-right: 150px
-}
-.right {
-  float: right;
-}
-
-</style>

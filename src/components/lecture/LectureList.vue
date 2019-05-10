@@ -1,19 +1,21 @@
 <template>
   <div class="ui middle aligned divided list">
-    <lecture-item v-for="lecture in lectures">
-      <lecture-info v-bind:lecture="lecture"></lecture-info>
-    </lecture-item>
+    <div class="item" v-for="lecture in lectures">
+        <shadow-box>
+          <lecture-item v-bind:lecture="lecture"></lecture-item>
+        </shadow-box>
+    </div>
   </div>
 </template>
 
 <script>
-import LectureInfo from "@/components/lecture/LectureInfo";
-import LectureItem from "@/components/lecture/LectureItem";
+import LectureItem from "@/components/lecture/LectureItem"
+import ShadowBox from "@/components/lecture/ShadowBox"
 
 export default {
   components: {
-    LectureInfo,
-    LectureItem
+    LectureItem,
+    ShadowBox
   },
   data () {
     return {
@@ -28,3 +30,18 @@ export default {
   }
 }
 </script>
+<style>
+.item:hover .content{
+  color: #0078FF;
+}
+.margin-left-150 {
+  margin-left: 150px
+}
+.margin-right-150 {
+  margin-right: 150px
+}
+.right {
+  float: right;
+}
+
+</style>

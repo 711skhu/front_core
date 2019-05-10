@@ -1,5 +1,5 @@
 <template>
-  <div  class="content">
+  <div class="content">
     {{ lecture.title }}
     <div class="sub header"> {{ lecture.professor }} </div>
   </div>

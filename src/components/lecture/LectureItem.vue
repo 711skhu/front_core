@@ -1,12 +1,10 @@
 <template>
-    <div class="item margin-left-150 margin-right-150">
       <a>
           <h3 class="ui header padding-24">
-            <slot></slot>
+            <lecture-info v-bind:lecture="lecture"></lecture-info>
             <lecture-toggle></lecture-toggle>
           </h3>
       </a>
-    </div>
 </template>
 
 
@@ -33,23 +31,16 @@
 -->
 
 <script>
-
-import LectureToggle from "@/components/lecture/LectureToggle";
-import LectureInfo from "@/components/lecture/LectureInfo";
+import LectureInfo from "@/components/lecture/LectureInfo"
+import LectureToggle from "@/components/lecture/LectureToggle"
 
 export default {
   components: {
-    //LectureItem,
+    LectureInfo,
     LectureToggle
   },
-  props: {
-      selectedIndex: { // 선택된 item 의 index - 초기 값
-        type: Number,
-        default: -1,
-        required: false
-      }
-    },
-    data () {
+  props: ['lecture'],
+  data () {
       return {
         localSelectedIndex: this.selectedIndex,
         hoverItemIndex: -1, // hover 된 아이템의 index

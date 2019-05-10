@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <lecture-list></lecture-list>
+    <div class="margin-left-150 margin-right-150">
+      <lecture-list></lecture-list>
+    </div>
   </div>
 </template>
 
