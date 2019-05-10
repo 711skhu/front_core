@@ -1,12 +1,12 @@
 <template>
-  <div class="content">
-    {{ props.element.title }}
-    <div class="sub header"> {{ props.element.professor }} </div>
+  <div  class="content">
+    {{ lecture.title }}
+    <div class="sub header"> {{ lecture.professor }} </div>
   </div>
 </template>
 
 <script>
-  export default {
-
-  }
+export default {
+  props: ['lecture']
+}
 </script>

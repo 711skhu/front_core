@@ -1,22 +1,18 @@
 <template>
-  <lecture-item
-    :items="items"
-  >
-    <div
-      slot="item"
-      slot-scope="props"
-    >
+
+
       <a>
         <h3 class="ui header padding-24">
+          <!--
           <div class="content">
             {{ props.element.title }}
             <div class="sub header"> {{ props.element.professor }} </div>
           </div>
+          <-->
+          <lecture-info :lecture="lecture"></lecture-info>
           <lecture-toggle></lecture-toggle>
         </h3>
       </a>
-    </div>
-  </lecture-item>
 </template>
 
 <script>
@@ -26,13 +22,10 @@
 
   export default {
     components: {
-      LectureItem,
-      LectureToggle,
-      LectureInfo
     },
     data () {
       return {
-        items: [
+        lectures: [
           { title : "알고리즘", professor: "이승진" },
           { title : "고급웹프로그래밍", professor: "이승진" },
           { title : "데이터베이스개론", professor: "홍은지" },

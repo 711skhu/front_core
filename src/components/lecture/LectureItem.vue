@@ -1,20 +1,15 @@
 <template>
-  <div class="ui middle aligned divided list">
-    <div
-      v-for="(item, index) in items"
-      :key="index"
-      :style="getLineStyle(index)"
-      class="item margin-left-150 margin-right-150"
-      @click.stop="clickItem(item, index)"
-      @mouseenter="updateHoverState(index, true)"
-      @mouseleave="updateHoverState(index, false)"
-    >
-      <slot name="item" :element="item">
-        <!-- 대체 컨텐츠 -->
-      </slot>
+    <div class="item margin-left-150 margin-right-150">
+      <a>
+          <h3 class="ui header padding-24">
+            <slot></slot>
+            <lecture-toggle></lecture-toggle>
+          </h3>
+      </a>
     </div>
-  </div>
-  </div>
+</template>
+
+
 <!--
   <div id="app" class="ui middle aligned divided list">
     <div
@@ -36,22 +31,18 @@
     </div>
   </div>
 -->
-</template>
 
 <script>
+
+import LectureToggle from "@/components/lecture/LectureToggle";
+import LectureInfo from "@/components/lecture/LectureInfo";
+
 export default {
-    props: {
-      items: {
-        type: Array,
-        required: true
-      },
-      lineColor: { // under line 색
-        type: String,
-        required: true
-      },
-      lineSize: { //  under line 굵기
-        required: true
-      },
+  components: {
+    //LectureItem,
+    LectureToggle
+  },
+  props: {
       selectedIndex: { // 선택된 item 의 index - 초기 값
         type: Number,
         default: -1,
