@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-
+    <ProblemType></ProblemType>
   </div>
 </template>
 <script>
+import ProblemType from './sample/lecture_type/problem__type.vue'
+export default {
+  components : {
+    'ProblemType' : ProblemType,
+  }
+}
 
 </script>
 
