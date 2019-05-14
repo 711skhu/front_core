@@ -1,6 +1,18 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <lecture-list></lecture-list>
+  </div>
 </template>
+
+<script>
+import LectureList from '@/components/lecture/LectureList'
+
+export default {
+  components: {
+    LectureList
+  }
+}
+</script>
 
 <style lang="less">
 #app {
