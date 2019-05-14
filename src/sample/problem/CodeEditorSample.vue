@@ -20,7 +20,7 @@
     components: {
       CodeEditor
     },
-    data () {
+    data() {
       return {
         theme: "dracula",
         mode: "javascript",
@@ -35,6 +35,7 @@
     width: 500px;
     height: 500px;
   }
+
   .editor {
     font-size: 14pt;
   }

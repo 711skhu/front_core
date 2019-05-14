@@ -2,10 +2,7 @@
   <!-- ace editor 를 사용하기 위한 id 사용 -->
   <div
     id="code-editor"
-    class="code-editor"
-  >
-
-  </div>
+    class="code-editor"></div>
 </template>
 
 <script>
@@ -14,55 +11,60 @@
 
   export default {
     props: {
-      theme: { // 에디터 테마
-        type: String,
-        required: true
+      theme: {
+        type: Object,
+        required: true,
+        description: "에디터 테마"
       },
-      mode: { // 에디터 모드 e.g.) java, javascript ...
-        type: String,
-        required: true
+      lang: {
+        type: Object,
+        required: true,
+        description: "에디터에 적용될 언어"
       },
-      initCode: { // 초기에 적혀 있을 코드
-        type: String,
-        required: false
+      value: {
+        description: "v-model 을 위한 prop"
       }
     },
-    data () {
+    data() {
       return {
         editor: null
       }
     },
-    mounted () {
+    mounted() {
       // 실제 태그가 생성되어야 editor 적용 가능하기 때문에 mounted 에 작성
-      this.editor = ace.edit("code-editor", {
-        theme: this.$_codeEditor_getTheme(this.theme),
-        mode: this.$_codeEditor_getMode(this.mode)
-      });
+      this.editor = ace.edit("code-editor");
 
-      if (this.initCode) {
-        this.editor.setValue(this.initCode);
-      }
-    },
-    watch: {
-      theme (newTheme) { // props 로 들어온 테마가 바뀌면 에디터의 테마 변경
-        this.editor.setTheme(this.$_codeEditor_getTheme(newTheme));
-      },
-      mode (newMode) { // props 로 들어온 모드가 바뀌면 에디터의 모드 변경
-        this.editor.session.setMode(this.$_codeEditor_getMode(newMode));
+      let editor = this.editor;
+
+      this.$_codeEditor_setTheme(this.theme);
+      this.$_codeEditor_setMode(this.lang);
+
+      // v-model 을 위한 input 이벤트 발생
+      editor.on("change", () => this.$emit("input", editor.getValue()));
+
+      if (this.value) {
+        editor.setValue(this.value);
       }
     },
     methods: {
-      getCode () { // 작성된 코드를 return 하는 메소드
-        return this.editor.getValue();
+      $_codeEditor_setTheme(theme) { // private 메소드, theme 주소가 있는 메소드
+        this.editor.setTheme("ace/theme/" + theme.ace);
       },
-      setCode (code) { // 매개변수로 넘어온 코드를 에디터에 적용하는 메소드
-        this.editor.setValue(code);
+      $_codeEditor_setMode(lang) { // private 메소드, mode 주소가 있는 메소드
+        this.editor.session.setMode("ace/mode/" + lang.ace);
+      }
+    },
+    watch: {
+      theme(newTheme) { // props 로 들어온 테마가 바뀌면 에디터의 테마 변경
+        this.$_codeEditor_setTheme(newTheme);
       },
-      $_codeEditor_getTheme (theme) { // private 메소드, theme 주소가 있는 메소드
-        return "ace/theme/" + theme;
+      lang(newMode) { // props 로 들어온 모드가 바뀌면 에디터의 모드 변경
+        this.$_codeEditor_setMode(newMode);
       },
-      $_codeEditor_getMode (mode) { // private 메소드, mode 주소가 있는 메소드
-        return "ace/mode/" + mode;
+      value(newValue) {
+        if (this.editor.getValue() !== newValue) {
+          this.editor.setValue(newValue);
+        }
       }
     }
   }

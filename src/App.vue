@@ -1,6 +1,10 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <ProblemType></ProblemType>
+=======
+    <lecture-list></lecture-list>
+>>>>>>> 51746ab704bc9ae609641329a65cca34bf10a8b1
   </div>
 </template>
 <script>
@@ -11,6 +15,16 @@ export default {
   }
 }
 
+</script>
+
+<script>
+import LectureList from '@/components/lecture/LectureList'
+
+export default {
+  components: {
+    LectureList
+  }
+}
 </script>
 
 <style lang="less">
