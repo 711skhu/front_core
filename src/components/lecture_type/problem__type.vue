@@ -7,18 +7,22 @@
     <sui-grid :columns="3">
       <sui-grid-row>
         <sui-grid-column>
+          <div class="border__color">
            <docs-wireframe name="paragraph" />
-           <h4 is="sui-header"> 맞은문제 </h4>
+           <h4 is="sui-header" color="blue"> 맞은문제 </h4>
            <p> {{ typeCorrectProblemCnt }} / {{ typeTotalProblemCnt }} </p>
+         </div>
         </sui-grid-column>
         <sui-grid-column>
+          <div class="border__color">
            <docs-wireframe name="paragraph" />
-           <h4 is="sui-header"> 틀린문제 </h4>
+           <h4 is="sui-header" color="blue"> 틀린문제 </h4>
            <p> {{ typeIncorrectProblemCnt }} / {{ typeTotalProblemCnt }} </p>
+         </div>
         </sui-grid-column>
         <sui-grid-column>
            <docs-wireframe name="paragraph" />
-           <h4 is="sui-header"> 덜푼문제 </h4>
+           <h4 is="sui-header" color="blue"> 덜푼문제 </h4>
            <p> {{ not_solve }} / {{ typeTotalProblemCnt }}</p>
         </sui-grid-column>
       </sui-grid-row>
@@ -67,5 +71,7 @@ export default {
 .title__icon {
   float : right;
 }
-
+.border__color {
+  border-right : 2px solid grey;
+}
 </style>
