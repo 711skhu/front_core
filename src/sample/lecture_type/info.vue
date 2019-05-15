@@ -1,17 +1,27 @@
 <template>
-
-    <sui-container class="infobox" fluid >
-      <!--강좌제목-->
-      <h1 is="sui-header" v-text="lectureTitle" style="color:black"></h1>
-      <!--강좌소개-->
-      <div >
-        <!--강좌 소개내용-->
-        <markdownview v-bind:markdown="message"></markdownview>
-        <!--강좌소개 옆 이미지-->
-        <i v-bind:class="selectedImage" style="color:black"></i>
-      </div>
-    </sui-container>
-
+    <sui-grid  divded="vertically" class="bgcolor" >
+      <sui-grid-row :columns="2">
+        <sui-grid-column>
+          <sui-header size="huge" color="purple" class="bgcolor">
+            {{ lectureTitle }}
+          </sui-header>
+        </sui-grid-column>
+        <sui-grid-column>
+          <docs-wireframe name="paragraph" />
+          <sui-button class="icon" basic color="purple" >Edit</sui-button>
+        </sui-grid-column>
+      </sui-grid-row>
+      <sui-grid-row :columns="2">
+        <sui-grid-column >
+          <docs-wireframe name="paragraph" />
+          <markdownview v-bind:markdown="message" ></markdownview>
+        </sui-grid-column>
+        <sui-grid-column >
+          <docs-wireframe name="icon"  />
+          <sui-icon v-bind:name="selectedImage" class="icon" />
+        </sui-grid-column>
+      </sui-grid-row>
+    </sui-grid>
 </template>
 
 <script>
@@ -22,8 +32,8 @@
 
     data () {
       return {
-        lectureTitle : 'JAVA Programming',
-        images : [ 'fas fa-balance-scale fa-10x', 'fas fa-book fa-10x', 'fas fa-atom fa-10x', 'fas fa-coins fa-10x', 'fas fa-dna fa-10x'],
+        lectureTitle : 'Java Programming',
+        images : [ 'massive database icon', 'massive dolly flatbed icon', 'massive tags icon', 'massivecubs icon', 'massive balance scale'],
         selectedImage: '',
         message : '#### 자바언어 기초과정입니다'
       }
@@ -41,15 +51,16 @@
 </script>
 
 <style lang="css" scoped>
-  i {
+
+  .icon {
     float : right;
-
-  },
-
-  .infobox {
-    padding-right : 60px;
-    padding-left : 100px;
-    padding-top : 20px;
+    color : #7B1FA2;
   }
+
+  .bgcolor {
+    background-color : #F3E5F5;
+  }
+
+
 
 </style>
