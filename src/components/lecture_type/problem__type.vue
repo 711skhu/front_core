@@ -1,8 +1,11 @@
 <template>
-  <sui-segment>
+  <shadowbox>
+  <sui-segment class="iconColor">
     <sui-header size="medium" textAlign="left">
       {{ typeTitle }}
-      <sui-icon name="arrow right" size="big" class="title__icon"  />
+      <span class="icon title__icon">
+      <sui-icon name="arrow right"  />
+    </span>
     </sui-header>
     <sui-grid :columns="3">
       <sui-grid-row>
@@ -28,11 +31,16 @@
       </sui-grid-row>
     </sui-grid>
   </sui-segment>
+</shadowbox>
 </template>
 
 <script>
+import ShadowBox from '../lecture/ShadowBox.vue'
 export default {
   name : 'problem__type',
+  components : {
+    'shadowbox' : ShadowBox
+  },
   props : {
     typeId : {
       type : Number,
@@ -73,5 +81,9 @@ export default {
 }
 .border__color {
   border-right : 2px solid grey;
+}
+
+.iconColor:hover .icon {
+  color : #0078FF;
 }
 </style>

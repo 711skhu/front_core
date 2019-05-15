@@ -30,8 +30,8 @@ export default {
   }
 }
 </script>
-<style>
-.item:hover .content{
+<style >
+.item:hover .content {
   color: #0078FF;
 }
 .margin-left-150 {
