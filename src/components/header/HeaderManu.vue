@@ -1,25 +1,24 @@
 <template>
-  <div>
-
-      <div>SKHU Online Judge</div>
-
-      <div>
-        <header-item
-          v-for="menu in menus"
-          v-model="currentMenu"
-          :menu="menu"
-        />
-      </div>
-      
-      <div>
-        <a>로그인</a>
-        <a>회원가입</a>
-      </div>
+  <div class="ui inverted segment header">
+    <div>SKHU Online Judge</div>
+    <div class="header__menu">
+      <header-item
+        v-for="menu in menus"
+        :key="menu.name"
+        v-model="currentMenu"
+        :menu="menu"
+      />
+    </div>
+    <div>
+      <a>로그인</a>
+      <a>회원가입</a>
+    </div>
   </div>
 </template>
 
 <script>
 import HeaderItem from "@/components/header/HeaderItem";
+import HeaderInfo from "@/models/header/HeaderInfo.js";
 
 const menus = [
   new HeaderInfo("스킬체크", "/skill"),
@@ -42,5 +41,17 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+}
 
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  color: white;
+}
 </style>
