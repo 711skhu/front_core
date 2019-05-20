@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <lecture-list></lecture-list>
+    <sign-up-form></sign-up-form>
   </div>
 </template>
 
 <script>
-import LectureList from '@/components/lecture/LectureList'
+import SignUpForm from '@/components/signup/SignUpForm'
 
 export default {
   components: {
-    LectureList
+    SignUpForm
   }
 }
 </script>

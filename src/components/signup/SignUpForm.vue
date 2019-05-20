@@ -1,0 +1,54 @@
+<template>
+  <div class="content">
+    <h2 class="padding-30p">계정 만들기</h2>
+    <form class="ui form">
+      <div class="field">
+        <label>이름</label>
+        <input type="text" placeholder="이름">
+      </div>
+      <div class="field">
+        <label>닉네임</label>
+        <input type="text" placeholder="닉네임">
+      </div>
+      <div class="field">
+        <label>이메일</label>
+        <input type="email" placeholder="이메일">
+      </div>
+      <div class="field">
+        <label>비밀번호</label>
+        <input type="password" placeholder="비밀번호">
+      </div>
+      <div class="field">
+        <label>비밀번호 확인</label>
+        <input type="password" placeholder="비밀번호 확인">
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" tabindex="0" class="">
+          <label><strong>이용약관</strong> 및 <strong>개인정보 처리방침</strong>에 동의합니다.</label>
+        </div>
+      </div>
+      <div class="field">
+        <button type="submit" class="ui primary button">
+          계정 만들기
+        </button>
+      </div>
+    </form>
+    <br/>
+    <div class="ui padding-30p">
+      <label>이미 계정이 있으신가요? <a>로그인</a></label>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.content {
+  margin: 0 35%;
+}
+.button {
+  width: 100%
+}
+.padding-30p{
+  padding: 0 30%;
+}
+</style>
