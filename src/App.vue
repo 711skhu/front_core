@@ -5,18 +5,18 @@
 </template>
 
 <script>
-import SignUpForm from '@/components/signup/SignUpForm'
+  import SignUpForm from '@/components/signup/SignUpForm'
 
-export default {
-  components: {
-    SignUpForm
+  export default {
+    components: {
+      SignUpForm
+    }
   }
-}
 </script>
 
 <style lang="less">
-#app {
-  margin-top: 1.5rem;
-  line-height: 1.4285;
-}
+  #app {
+    margin-top: 1.5rem;
+    line-height: 1.4285;
+  }
 </style>
