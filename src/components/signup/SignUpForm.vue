@@ -21,7 +21,11 @@
       <div class="field">
         <label>비밀번호 확인</label>
         <input v-model="passwordCheck" type="password" placeholder="비밀번호 확인">
+        <div v-if="!isCorrect" class="ui pointing red basic label">
+          비밀번호가 일치하지 않습니다.
+        </div>
       </div>
+
       <div class="field">
         <div class="ui checkbox">
           <input
@@ -43,9 +47,12 @@
       </div>
     </form>
     <br/>
-    <div class="ui padding-30p">
+    <div class="ui padding-30p login">
       <label>이미 계정이 있으신가요? <a href="#">로그인</a></label>
     </div>
+    <pre>
+      {{ $data }}
+    </pre>
   </div>
 </template>
 
@@ -61,11 +68,17 @@
         checked: 'false'
       }
     },
-    //methods: {}
+    methods: {
+    },
     computed: {
       isDisabled() {
         if (this.name.length <= 0 || this.nickName.length <= 0 || this.email.length <= 0
-          || this.password.length <= 0 || this.passwordCheck.length <= 0 || this.checked === 'false') {
+          || this.password.length <= 0 || this.passwordCheck.length <= 0 || this.checked === 'false' || !(this.password === this.passwordCheck)) {
+          return true;
+        }
+      },
+      isCorrect() {
+        if(this.password === this.passwordCheck) {
           return true;
         }
       }
@@ -84,5 +97,18 @@
 
   .padding-30p {
     padding: 0 30%;
+  }
+
+  a:hover {
+    color: #0078FF;
+  }
+
+  .login a::after {
+    transition-duration: 0.06s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    vertical-align: top;
+    margin-left: 0.25rem;
+    content: ' > ';
   }
 </style>
