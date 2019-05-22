@@ -1,18 +1,6 @@
 <template>
-  <div id="app">
-    <sign-up-form></sign-up-form>
-  </div>
+  <div id="app"></div>
 </template>
-
-<script>
-  import SignUpForm from '@/components/signup/SignUpForm'
-
-  export default {
-    components: {
-      SignUpForm
-    }
-  }
-</script>
 
 <style lang="less">
   #app {
