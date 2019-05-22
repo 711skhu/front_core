@@ -21,7 +21,7 @@
       <div class="field">
         <label>비밀번호 확인</label>
         <input v-model="passwordCheck" type="password" placeholder="비밀번호 확인">
-        <div v-if="!isCorrect" class="ui pointing red basic label">
+        <div v-if="!isPasswordCorrect" class="ui pointing red basic label">
           비밀번호가 일치하지 않습니다.
         </div>
       </div>
@@ -41,7 +41,7 @@
         <button
           type="submit"
           class="ui primary button"
-          :class="{disabled: isDisabled}">
+          :class="{disabled: isDisabledRegister}">
           계정 만들기
         </button>
       </div>
@@ -68,13 +68,13 @@
     methods: {
     },
     computed: {
-      isDisabled() {
+      isDisabledRegister() {
         if (this.name.length <= 0 || this.nickName.length <= 0 || this.email.length <= 0
           || this.password.length <= 0 || this.passwordCheck.length <= 0 || this.checked === 'false' || !(this.password === this.passwordCheck)) {
           return true;
         }
       },
-      isCorrect() {
+      isPasswordCorrect() {
         if(this.password === this.passwordCheck) {
           return true;
         }

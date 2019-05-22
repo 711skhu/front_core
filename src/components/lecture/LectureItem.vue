@@ -17,7 +17,13 @@
       LectureInfo,
       LectureToggle
     },
-    props: ['lecture']
+    props: {
+      lecture: {
+        type:Object,
+        required: true,
+        description: "lecture 객체"
+      }
+    }
   }
 
 </script>
