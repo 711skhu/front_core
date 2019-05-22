@@ -47,8 +47,8 @@
       </div>
     </form>
     <br/>
-    <div class="ui padding-30p login">
-      <label>이미 계정이 있으신가요? <a href="#">로그인</a></label>
+    <div class="ui login">
+      이미 계정이 있으신가요? <a href="#">로그인</a>
     </div>
     <pre>
       {{ $data }}
@@ -99,16 +99,44 @@
     padding: 0 30%;
   }
 
-  a:hover {
-    color: #0078FF;
-  }
-
-  .login a::after {
+  a {
+    text-decoration: none;
+    transition: .06s;
     transition-duration: 0.06s;
     transition-property: all;
     transition-timing-function: ease-in-out;
+    transition-delay: initial;
+  }
+
+  .login {
+    font-size: 13px;
+    text-align: center;
+    color: #98A8B9;
+  }
+
+  .login a {
+    padding-left: 0.25rem;
+    font-weight: 500;
+    color: #263747;
+    text-decoration: none;
+  }
+
+  .login a:hover {
+    color: #0078FF;
+  }
+
+  .login a:after {
+    transition-duration: 0.06s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+    transition-delay: initial;
+    display: inline-block;
     vertical-align: top;
     margin-left: 0.25rem;
     content: ' > ';
+  }
+
+  .login a:hover:after {
+    transform: translateX(0.25rem);
   }
 </style>
