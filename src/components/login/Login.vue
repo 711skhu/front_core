@@ -3,7 +3,7 @@
     <h2 class="padding-40p">로그인</h2>
     <form class="ui form">
       <div class="field">
-        <label>이름</label>
+        <label>아이디</label>
         <input v-model="userId" type="text" placeholder="아이디">
       </div>
       <div class="field">
@@ -17,7 +17,7 @@
       </div>
     </form>
     <br/>
-    <div class="ui login">
+    <div class="ui sign-up">
       아직 계정이 없으신가요? <a href="#">계정만들기</a>
     </div>
   </div>
@@ -52,21 +52,21 @@
     transition-timing-function: ease-in-out;
     transition-delay: initial;
   }
-  .login {
+  .sign-up {
     font-size: 13px;
     text-align: center;
     color: #98A8B9;
   }
-  .login a {
+  .sign-up a {
     padding-left: 0.25rem;
     font-weight: 500;
     color: #263747;
     text-decoration: none;
   }
-  .login a:hover {
+  .sign-up a:hover {
     color: #0078FF;
   }
-  .login a:after {
+  .sign-up a:after {
     transition-duration: 0.06s;
     transition-property: all;
     transition-timing-function: ease-in-out;
@@ -76,7 +76,7 @@
     margin-left: 0.25rem;
     content: ' > ';
   }
-  .login a:hover:after {
+  .sign-up a:hover:after {
     transform: translateX(0.25rem);
   }
 
