@@ -43,5 +43,4 @@ const Language = Object.freeze({
 });
 
 
-
 export default Language;

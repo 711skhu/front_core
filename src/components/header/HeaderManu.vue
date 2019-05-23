@@ -17,41 +17,41 @@
 </template>
 
 <script>
-import HeaderItem from "@/components/header/HeaderItem";
-import HeaderInfo from "@/models/header/HeaderInfo.js";
+  import HeaderItem from "@/components/header/HeaderItem";
+  import HeaderInfo from "@/models/header/HeaderInfo.js";
 
-const menus = [
-  new HeaderInfo("스킬체크", "/skill"),
-  new HeaderInfo("개발채용", "/employ"),
-  new HeaderInfo("코딩테스트 연습", "/test"),
-  new HeaderInfo("프로그래밍 강의", "/lecture")
-];
+  const menus = [
+    new HeaderInfo("스킬체크", "/skill"),
+    new HeaderInfo("개발채용", "/employ"),
+    new HeaderInfo("코딩테스트 연습", "/test"),
+    new HeaderInfo("프로그래밍 강의", "/lecture")
+  ];
 
-export default {
-  components: {
-    HeaderItem
-  },
-  data () {
-    return {
-      menus: menus,
-      currentMenu: null
+  export default {
+    components: {
+      HeaderItem
+    },
+    data() {
+      return {
+        menus: menus,
+        currentMenu: null
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-.header {
-  display: flex;
-  justify-content: space-between;
-}
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.header__menu {
-  display: flex;
-  justify-content: space-between;
-}
+  .header__menu {
+    display: flex;
+    justify-content: space-between;
+  }
 
-a {
-  color: white;
-}
+  a {
+    color: white;
+  }
 </style>

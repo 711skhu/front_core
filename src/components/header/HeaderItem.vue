@@ -8,29 +8,29 @@
 </template>
 
 <script>
-import HeaderInfo from "@/models/header/HeaderInfo.js";
+  import HeaderInfo from "@/models/header/HeaderInfo.js";
 
-export default {
-  components: {
-    HeaderInfo
-  },
-  props: {
-    menu: {
-      type: HeaderInfo,
-      required: true,
-      description: "menu context"
+  export default {
+    components: {
+      HeaderInfo
     },
-    value: {
-      type: HeaderInfo,
-      description: "v-model을 위한 props"
-    }
-  },
-  computed: {
-    isActive() {
-      return this.menu === this.value;
+    props: {
+      menu: {
+        type: HeaderInfo,
+        required: true,
+        description: "menu context"
+      },
+      value: {
+        type: HeaderInfo,
+        description: "v-model을 위한 props"
+      }
+    },
+    computed: {
+      isActive() {
+        return this.menu === this.value;
+      }
     }
   }
-}
 </script>
 
 <style scoped>
