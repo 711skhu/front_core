@@ -4,7 +4,7 @@
     <form class="ui form">
       <div class="field">
         <label>이름</label>
-        <input v-model="name" type="text" placeholder="이름">
+        <input v-model="userId" type="text" placeholder="이름">
       </div>
       <div class="field">
         <label>닉네임</label>
@@ -57,7 +57,7 @@
   export default {
     data() {
       return {
-        name: '',
+        userId: '',
         nickName: '',
         email: '',
         password: '',
@@ -69,7 +69,7 @@
     },
     computed: {
       isDisabledRegister() {
-        if (this.name.length <= 0 || this.nickName.length <= 0 || this.email.length <= 0
+        if (this.userId.length <= 0 || this.nickName.length <= 0 || this.email.length <= 0
           || this.password.length <= 0 || this.passwordCheck.length <= 0 || this.checked === 'false' || !(this.password === this.passwordCheck)) {
           return true;
         }
