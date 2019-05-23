@@ -11,7 +11,7 @@
         <input v-model="password" type="password" placeholder="비밀번호">
       </div>
       <div class="field">
-        <button type="submit" class="ui primary button">
+        <button type="submit" class="ui primary button" :class="{disabled: isDisabledLogin}">
           로그인
         </button>
       </div>
@@ -29,6 +29,12 @@
       return {
         userId: '',
         password: ''
+      }
+    },
+    computed: {
+      isDisabledLogin() {
+        if(this.userId.length <= 0 || this.password.length <= 0)
+          return true;
       }
     }
   }
