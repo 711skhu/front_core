@@ -1,10 +1,9 @@
 <template>
-  <div id="app"> </div>
+  <v-app id="app"></v-app>
 </template>
 
 <style lang="less">
-#app {
-  margin-top: 1.5rem;
-  line-height: 1.4285;
-}
+  #app {
+    line-height: 1.4285;
+  }
 </style>
