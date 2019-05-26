@@ -1,10 +1,12 @@
 <template>
   <div class="navbar navbar-inverse">
-    <v-breadcrumbs :items="items" divider=">" class="breadcrumb">
-      <template v-slot:item="props">
-        <a :href="props.item.href" :class="[props.item.active && 'active']">{{ props.item.text }}</a>
-      </template>
-    </v-breadcrumbs>
+    <div class="breadcrumb">
+      <ul class="list">
+        <li v-for="item in items">
+          <a :href="item.href">{{ item.text }}</a>
+        </li>
+      </ul>
+    </div>
     <div class="right_menu">
       <a>도움말</a>
       <a>컴파일 옵션</a>
@@ -39,17 +41,8 @@
 </script>
 
 <style>
-  a {
-    color: #98A8B9;
-  }
-
-  a:hover {
-    color: white;
-  }
-
-  .active {
-    color: white;
-    font-weight: 700;
+  ul {
+    list-style:none;
   }
 
   .navbar {
@@ -68,16 +61,40 @@
     border-color: transparent;
   }
 
-  .breadcrumb>li {
-    font-size: 14px;
+  .breadcrumb {
+    padding-top: 20px;
   }
 
-  .theme--light.v-breadcrumbs .v-breadcrumbs__divider {
+  .list li {
+    float: left;
+  }
+
+  .list li a {
     color: #98A8B9;
+    font-size: 15px;
+  }
+
+  .list li a:hover {
+    color: white;
+  }
+
+  .list li::after {
+    margin: 0 10px;
+    color: #98A8B9;
+    content: ">";
+  }
+
+  .list li:last-child a{
+    color: white;
+    font-weight: 700;
+  }
+
+  .list li:last-child::after{
+    content:"";
   }
 
   .right_menu {
-    padding: 16px 0;
+    padding: 16px 10px;
   }
 
   .right_menu a{
