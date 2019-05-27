@@ -4,10 +4,9 @@
       <sui-header size="medium" textAlign="left">
         {{ typeTitle }}
         <span class="icon title__icon">
-        <sui-icon name="arrow right"/>
-      </span>
+      <sui-icon name="arrow right"/>
+    </span>
       </sui-header>
-
       <sui-grid :columns="3">
         <sui-grid-row>
           <sui-grid-column>
@@ -21,7 +20,7 @@
             <div class="border__color">
               <docs-wireframe name="paragraph"/>
               <h4 is="sui-header" color="blue"> 틀린문제 </h4>
-              <p> {{ typeInCorrectProblemCnt }} / {{ typeTotalProblemCnt }} </p>
+              <p> {{ typeIncorrectProblemCnt }} / {{ typeTotalProblemCnt }} </p>
             </div>
           </sui-grid-column>
           <sui-grid-column>
@@ -36,28 +35,40 @@
 </template>
 
 <script>
-
-  import ShadowBox from '../ShadowBox.vue'
+  import ShadowBox from './ShadowBox.vue'
 
   export default {
     name: 'problem__type',
-    data() {
-      return {
-        typeId: 1,
-        typeTitle: '2019학년도 구현과제',
-        typeTotalProblemCnt: 10,
-        typeCorrectProblemCnt: 6,
-        typeInCorrectProblemCnt: 2
-      }
-    },
     components: {
       'shadowbox': ShadowBox
     },
-
+    props: {
+      typeId: {
+        type: Number,
+        default: -1,
+        required: true
+      },
+      typeTitle: {
+        type: String,
+        required: true
+      },
+      typeTotalProblemCnt: {
+        type: Number,
+        required: true
+      },
+      typeCorrectProblemCnt: {
+        type: Number,
+        required: true
+      },
+      typeIncorrectProblemCnt: {
+        type: Number,
+        required: true
+      }
+    },
     computed: {
       not_solve() {
-        const {typeTotalProblemCnt, typeCorrectProblemCnt, typeInCorrectProblemCnt} = this;
-        return typeTotalProblemCnt - (typeCorrectProblemCnt + typeInCorrectProblemCnt);
+        const {typeTotalProblemCnt, typeCorrectProblemCnt, typeIncorrectProblemCnt} = this;
+        return typeTotalProblemCnt - (typeCorrectProblemCnt + typeIncorrectProblemCnt);
       }
     }
 

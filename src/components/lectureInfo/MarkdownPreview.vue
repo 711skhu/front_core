@@ -1,18 +1,20 @@
 <template>
   <div class="editor">
-      <textarea
-          class="tab-content__textarea"
-          :value="value"
-          @input="update"
-        />
+    <problem-view
+      class="tab-content__markdown-view"
+      :theme="theme"
+      :value="value"
+    />
   </div>
 </template>
 
 <script>
-  import * as _ from "lodash";
+  import ProblemView from "@/components/problem/ProblemView";
 
   export default {
-
+    components: {
+      ProblemView,
+    },
     props: {
       value: {
         type: String
@@ -50,6 +52,12 @@
     font-size: 1em;
 
     resize: none;
+  }
+  .tab-content__markdown-view {
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
   }
 
 </style>
