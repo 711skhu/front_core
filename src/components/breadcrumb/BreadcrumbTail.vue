@@ -21,17 +21,14 @@
         items: [
           {
             text: '코딩테스트 연습',
-            active: false,
             href: 'breadcrumbs_dashboard'
           },
           {
             text: '사용자 제작 문제',
-            active: false,
             href: 'breadcrumbs_link_1'
           },
           {
             text: '소수의 합',
-            active: true,
             href: 'breadcrumbs_link_2'
           }
         ]
