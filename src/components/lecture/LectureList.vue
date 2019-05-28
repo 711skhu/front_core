@@ -25,13 +25,13 @@
           {title: "데이터베이스개론", professor: "홍은지"},
           {title: "자바프로그래밍", professor: "노은하"}
         ],
-        selectedIndex:
+        selectedIndex: 0
       }
     }
   }
 </script>
 <style>
-  .item:hover.content {
+  .item:hover .content {
     color: #0078FF;
   }
 
