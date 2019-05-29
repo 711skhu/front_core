@@ -31,6 +31,9 @@
   }
 </script>
 <style>
+  .ui.list > .item {
+    padding: 0;
+  }
   .item:hover .content {
     color: #0078FF;
   }
@@ -47,4 +50,8 @@
     float: right;
   }
 
+  .ui.list {
+    margin: 1em 15%;
+    border-top: 0.0625rem solid rgba(50,50,124,0.12);
+  }
 </style>

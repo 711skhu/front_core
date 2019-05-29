@@ -9,7 +9,7 @@
         :menu="menu"
       />
     </div>
-    <div>
+    <div class="right_menu">
       <a>로그인</a>
       <a>회원가입</a>
     </div>
@@ -53,5 +53,17 @@
 
   a {
     color: white;
+  }
+
+  .ui.segment {
+    padding: 0.5em 1em;
+  }
+
+  .right_menu {
+    margin-right: -10px;
+  }
+
+  .right_menu a{
+    margin-right: 5px;
   }
 </style>

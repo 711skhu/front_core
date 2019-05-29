@@ -37,7 +37,7 @@
   .item {
     color: white;
     border: 2px solid #1B1C1D;
-    padding-right: 10px;
+    margin-right: 10px;
   }
 
   .item:hover {
