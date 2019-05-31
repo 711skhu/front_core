@@ -26,19 +26,21 @@
 </template>
 
 <script>
+  import LectureCategoryItem from "@/models/lecture/LectureCategoryItem";
+
+  let items = [
+    new LectureCategoryItem('맞은 문제', 4),
+    new LectureCategoryItem('덜 푼 문제', 3),
+    new LectureCategoryItem('총 문제', 7),
+  ];
+
   export default {
-    props: {
-      title: {
-        type: String,
-        required: true,
-        description: "카테고리 제목"
-      },
-      items: {
-        type: Array,
-        required: true,
-        description: "카테고리의 항목"
+    data() {
+      return {
+        title: '연습문제',
+        items: items
       }
-    },
+    }
   }
 </script>
 
@@ -71,8 +73,8 @@
 
   .items__title {
     color: #0078FF;
-    font-weight: bold;
-    font-size: 0.7rem;
+    font-weight : bold;
+    font-size: 0.9rem;
   }
 
   .items__content {
