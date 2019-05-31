@@ -9,6 +9,7 @@ const EnumFactory = {
       }
 
       objects[object].toString || (objects[object].toString = () => object);
+      objects[object].name = object;
 
       let property = Object.freeze(objects[object]);
 

@@ -39,7 +39,7 @@
 
 <style>
   ul {
-    list-style:none;
+    list-style: none;
   }
 
   .navbar {
@@ -53,6 +53,7 @@
     display: flex;
     justify-content: space-between;
   }
+
   .navbar-inverse {
     background-color: #0C151C;
     border-color: transparent;
@@ -81,27 +82,27 @@
     content: ">";
   }
 
-  .list li:last-child a{
+  .list li:last-child a {
     color: white;
     font-weight: 700;
   }
 
-  .list li:last-child::after{
-    content:"";
+  .list li:last-child::after {
+    content: "";
   }
 
   .right_menu {
     padding: 16px 10px;
   }
 
-  .right_menu a{
+  .right_menu a {
     color: white;
     font-size: 16px;
     font-weight: 700;
     padding-right: 10px;
   }
 
-  .right_menu a:hover{
+  .right_menu a:hover {
     color: #98A8B9;
   }
 </style>
