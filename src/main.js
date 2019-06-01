@@ -11,10 +11,7 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(SuiVue);
 Vue.use(Vuetify);
 
-
-axios.default.baseURL = "http://localhost:8088";
 Vue.prototype.$http = axios;
-Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',

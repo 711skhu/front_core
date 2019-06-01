@@ -11,6 +11,7 @@
 <script>
   import LectureItem from "@/components/lecture/LectureItem"
   import ShadowBox from "@/components/lecture/ShadowBox"
+  import axios from 'axios'
 
   export default {
     components: {
@@ -22,13 +23,12 @@
         lectures: []
       }
     },
-    methods: {
-      makeLectures: function() {
-        this.$http.get('/api/lectures')
-          .then(result => {
-            this.lectures = result.data;
-          })
-      }
+    created() {
+      axios.get('http://localhost:8080/server/lectures.json')
+        .then((response)=>{
+          this.lectures = response.data;
+          console.log(this.lectures);
+        })
     }
   }
 </script>
