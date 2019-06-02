@@ -7,6 +7,7 @@ import SuiVue from 'semantic-ui-vue';
 
 import 'vuetify/dist/vuetify.min.css'
 
+
 Vue.use(SuiVue);
 Vue.use(Vuetify);
 
