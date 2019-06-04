@@ -19,7 +19,7 @@
     border-top: lightgray solid 0.1rem;
   }
 
-  .box:hover :nth-child(1) {
+  .box:hover > :nth-child(1) {
     color: cornflowerblue;
   }
 </style>
