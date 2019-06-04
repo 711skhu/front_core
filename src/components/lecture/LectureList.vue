@@ -11,6 +11,7 @@
 <script>
   import LectureItem from "@/components/lecture/LectureItem"
   import ShadowBox from "@/components/lecture/ShadowBox"
+  import axios from 'axios'
 
   export default {
     components: {
@@ -19,18 +20,22 @@
     },
     data() {
       return {
-        lectures: [
-          {title: "알고리즘", professor: "이승진"},
-          {title: "고급웹프로그래밍", professor: "이승진"},
-          {title: "데이터베이스개론", professor: "홍은지"},
-          {title: "자바프로그래밍", professor: "노은하"}
-        ],
-        selectedIndex: 0
+        lectures: []
       }
+    },
+    created() {
+      axios.get('http://localhost:8080/server/lectures.json')
+        .then((response)=>{
+          this.lectures = response.data;
+          console.log(this.lectures);
+        })
     }
   }
 </script>
 <style>
+  .ui.list > .item {
+    padding: 0;
+  }
   .item:hover .content {
     color: #0078FF;
   }
@@ -47,4 +52,8 @@
     float: right;
   }
 
+  .ui.list {
+    margin: 1em 15%;
+    border-top: 0.0625rem solid rgba(50,50,124,0.12);
+  }
 </style>
