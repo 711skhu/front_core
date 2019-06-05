@@ -9,7 +9,17 @@
         :menu="menu"
       />
     </div>
-    <div class="right_menu">
+    <div
+      class="right_menu"
+      v-if="isUser"
+    >
+      <a>마이페이지</a>
+      <a>로그아웃</a>
+    </div>
+    <div
+      class="right_menu"
+      v-else
+    >
       <a>로그인</a>
       <a>회원가입</a>
     </div>
@@ -34,8 +44,16 @@
     data() {
       return {
         menus: menus,
-        currentMenu: null
+        currentMenu: null,
+        isUser: false
       }
+    },
+    created() {
+      axios.get('http://localhost:8080/server/userInfo.json')
+        .then((response) => {
+          this.isUser = response.data.isUser;
+          console.log(this.isUser);
+        })
     }
   }
 </script>
