@@ -29,6 +29,7 @@
 <script>
   import HeaderItem from "@/components/header/HeaderItem";
   import HeaderInfo from "@/models/header/HeaderInfo.js";
+  import axios from 'axios'
 
   const menus = [
     new HeaderInfo("스킬체크", "/skill"),
@@ -49,7 +50,7 @@
       }
     },
     created() {
-      axios.get('http://localhost:8080/server/userInfo.json')
+      axios.get('http://localhost:8080/server/isUser.json')
         .then((response) => {
           this.isUser = response.data.isUser;
           console.log(this.isUser);
@@ -82,6 +83,6 @@
   }
 
   .right_menu a{
-    margin-right: 5px;
+    margin-right: 10px;
   }
 </style>
