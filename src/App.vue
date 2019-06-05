@@ -4,7 +4,7 @@
   </v-app>
 </template>
 <script>
-
+  
 </script>
 <style lang="less">
   #app {
