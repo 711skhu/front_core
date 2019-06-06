@@ -1,10 +1,16 @@
 <template>
   <v-app id="app">
-
+    <lecture-list-page></lecture-list-page>
   </v-app>
 </template>
 <script>
+ import LectureListPage from '@/admin/views/lectureList/LectureListPage'
 
+  export default {
+   components: {
+     LectureListPage
+   }
+  }
 </script>
 <style lang="less">
   #app {
