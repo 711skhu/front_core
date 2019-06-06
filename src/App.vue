@@ -1,13 +1,16 @@
 <template>
   <v-app id="app">
     <comment></comment>
+<!--    <recomment></recomment>-->
   </v-app>
 </template>
 <script>
   import Comment from '@/components/comment/Comment'
+  // import Recomment from '@/components/comment/Recomment'
   export default {
     components : {
       Comment
+      // Recomment
     }
   }
 </script>
