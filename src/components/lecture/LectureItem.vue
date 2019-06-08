@@ -2,7 +2,11 @@
   <a>
     <h3 class="ui header padding-24">
       <lecture-info v-bind:lecture="lecture"></lecture-info>
-      <toggle v-if="isProfessor"></toggle>
+      <toggle
+        v-if="isProfessor"
+        v-bind:lecture="lecture"
+      >
+      </toggle>
     </h3>
   </a>
 </template>
@@ -39,5 +43,4 @@
   .padding-24 {
     padding: 24px;
   }
-
 </style>

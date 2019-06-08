@@ -5,9 +5,11 @@
 </template>
 <script>
  import LectureListPage from '@/admin/views/lectureList/LectureListPage'
+ //import LectureAdd from '@/admin/views/lectureList/LectureAdd'
 
   export default {
    components: {
+     //LectureAdd
      LectureListPage
    }
   }
