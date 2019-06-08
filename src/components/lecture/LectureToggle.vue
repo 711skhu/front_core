@@ -18,7 +18,7 @@
 <style scoped>
   .v-input--selection-controls {
     float: right;
-    margin-top: -30px;
+    margin-top: -60px;
   }
   .container {
     padding: 0;
