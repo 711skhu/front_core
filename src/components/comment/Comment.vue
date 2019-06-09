@@ -40,7 +40,7 @@
 </template>
 
 <script>
-  import Recomment from '@/sample/comment/Recomment'
+  import Recomment from '@/components/comment/Recomment'
   export default {
     name: "Comment",
     components: {

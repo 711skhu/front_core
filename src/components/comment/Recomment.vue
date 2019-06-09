@@ -1,17 +1,33 @@
 <template>
-  <div
-    class="recomment__box"
-    v-for="item in items"
-    :key="item.id"
-  >
-    <div class="recomment__icon">
-      <v-icon>subdirectory_arrow_right</v-icon>
+  <div class="container">
+    <div
+      class="comment__box"
+      :comments="person.comments"
+      v-for="comment in comments"
+      :key="comment.id"
+    >
+      <div class="comment__left">
+        <v-icon>subdirectory_arrow_right</v-icon>
+      </div>
+      <div class="comment__right">
+        <div class="comment__info">
+          <div class="comment__info__img">
+            <img
+              class="comment__info__img-modifier"
+              width="70rem"
+              :src=comment.id_image
+            >
+          </div>
+          <div class="comment__info__id">
+            <div>
+              <h4>{{comment.id}}</h4>
+            </div>
+            <div class="comment__info-date">{{comment.date}}</div>
+          </div>
+        </div>
+        <div class="comment__content">{{comment.comment}}</div>
+      </div>
     </div>
-    <div class="recomment__info">
-      <div>{{item.id}}</div>
-      <div>{{item.date}}</div>
-    </div>
-    <div class="recomment__content">{{item.comment}}</div>
   </div>
 </template>
 
@@ -19,28 +35,59 @@
     export default {
       name: "ReComment",
       props: {
-        items : Array,
-        required : true,
-        description : "대댓글 항목"
+        comments : {
+          type : Array,
+          required : true,
+          description : "대댓글 항목"
+        }
       }
     }
 </script>
 
 <style scoped>
-  .recomment__box {
-    display : flex;
+  .comment__box {
+    display: flex;
+    margin-bottom: 1.3rem;
+    border-bottom: 1px solid #B2C0CC;
   }
-  .recomment__box hover {
-    display : none;
+
+  .comment__left {
+    flex: 0 0 35px;
   }
-  .recomment__icon {
-    flex : 1 1 auto;
+
+  .comment__right {
+    display: flex;
+    flex-direction: column;
   }
-  .recomment__info {
-    flex : 3 3 auto;
+
+  .comment__info {
+    display: flex;
   }
-  .recomment__content {
-    flex : 6 6 auto;
+
+  .comment__info__img {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+  }
+
+  .comment__info__img-modifier {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+  }
+
+  .comment__info__id {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comment__info-date {
+    color: #B2C0CC;
+  }
+
+  .comment__content {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
 </style>
