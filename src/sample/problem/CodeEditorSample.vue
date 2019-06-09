@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import CodeEditor from "@/components/problem/CodeEditor";
+  import CodeEditor from "@/components/problem/AceEditor";
 
   export default {
     components: {

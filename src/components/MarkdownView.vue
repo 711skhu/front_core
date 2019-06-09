@@ -1,9 +1,12 @@
 <template>
-  <div :class="themeClass" v-html="compiledMarkdown"></div>
+  <div class="markdown-body">
+    <div v-html="compiledMarkdown"></div>
+  </div>
 </template>
 
 <script>
   import * as marked from "marked";
+  import 'github-markdown-css'
 
   export default {
     props: {
@@ -16,8 +19,6 @@
       compiledMarkdown() {
         return marked(this.value, {sanitize: true});
       },
-      themeClass() {
-      }
     }
   }
 </script>

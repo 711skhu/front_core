@@ -8,8 +8,11 @@ import SuiVue from 'semantic-ui-vue';
 
 import 'vuetify/dist/vuetify.min.css'
 
+import VueSplit from 'vue-split-panel'
+
 Vue.use(SuiVue);
 Vue.use(Vuetify);
+Vue.use(VueSplit);
 
 Vue.prototype.$http = axios;
 
