@@ -1,56 +1,63 @@
 <template>
   <div class="container">
-    <div
-      class="container__upper"
-      @click="isRecommentShow = !isRecommentShow"
-    >
-      <div class="container__left">
-        <div v-html="identicon"></div>
-      </div>
-      <div class="container__right">
-        <div class="header">
-          <h3>{{ value.content }}</h3>
+      <div
+        class="container__upper"
+        @click="isRecommentShow = !isRecommentShow"
+      >
+        <div class="container__left">
+          <div v-html="identicon"></div>
         </div>
-        <div class="content">
-          <div class="content__item">
-            <v-icon small>perm_identity</v-icon>
-            {{ value.id }}
+        <div class="container__right">
+          <div class="header">
+            {{ value.content }}
+            <span
+              v-show="login_id === value.id"
+              class="header-icon"
+              @click="deleteComment"
+            >
+              <v-icon >more_vert</v-icon>
+            </span>
           </div>
-          <div class="content__item">
-            <v-icon small>date_range</v-icon>
-            {{ value.date }}
+          <div class="content">
+            <div class="content__item">
+              <v-icon small>perm_identity</v-icon>
+              {{ value.id }}
+            </div>
+            <div class="content__item">
+              <v-icon small>date_range</v-icon>
+              {{ value.date }}
+            </div>
+            <div class="content__item">
+              <v-icon small>comment</v-icon>
+              {{ recomments.length }}
+            </div>
           </div>
-          <div class="content__item">
-            <v-icon small>comment</v-icon>
-            {{ recomments.length }}
+        </div>
+      </div>
+      <div class="container__lower">
+        <div v-show="isRecommentShow">
+          <recomment
+            v-for="comment in recomments"
+            :comment="comment"
+          />
+          <div class="comment__box">
+            <h3>답변 쓰기</h3>
+            <textarea
+              class="content__textarea"
+              maxlength="500"
+              v-model="inputComment"
+              placeholder="질문을 작성하세요.">
+            </textarea>
+            <v-btn
+              class="button__register"
+              medium
+              color=#0078FF
+              @click="addComment">등록
+            </v-btn>
           </div>
         </div>
       </div>
     </div>
-    <div class="container__lower">
-      <div v-show="isRecommentShow">
-        <recomment
-          v-for="comment in recomments"
-          :comment="comment"
-        />
-        <div class="comment__box">
-          <h3>답변 쓰기</h3>
-          <textarea
-            class="content__textarea"
-            maxlength="500"
-            v-model="inputComment"
-            placeholder="질문을 작성하세요.">
-          </textarea>
-          <v-btn
-            class="button__register"
-            medium
-            color=#0078FF
-            @click="addComment">등록
-          </v-btn>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -58,7 +65,7 @@
   import CommentItem from '@/models/comment/CommentItem'
   import * as jdenticon from "jdenticon";
 
-  let value = new CommentItem('jijihee123', '2019.06.09 13:34', '시간 초과가 뜨는 이유를 잘 모르겠습니다');
+  let value = new CommentItem('hyunee31', '2019.06.09 13:34', '시간 초과가 뜨는 이유를 잘 모르겠습니다');
 
   let recomments = [
     new CommentItem('heyharoo123', '2019.4.30 09:28', '1,2,3,4,9,11번 케이스만 통과합니다..'),
@@ -75,12 +82,18 @@
         value: value,
         recomments: recomments,
         inputComment: '',
-        isRecommentShow: false
+        isRecommentShow: false,
+        login_id : 'hyunee31' // 현재 로그인 되어 있는 아이디
       }
     },
     computed: {
       identicon: function () {
         return jdenticon.toSvg(this.value.id, 65);
+      }
+    },
+    methods: {
+      deleteComment() {
+        alert("정말 삭제하시겠습니까?");
       }
     }
   }
@@ -106,10 +119,16 @@
 
   .header {
     margin-bottom: 0.3rem;
+    font-size : medium;
+    font-weight : bold;
   }
 
   .header:hover {
     color: #0078FF;
+  }
+
+  .header-icon {
+    float : right;
   }
 
   .content {

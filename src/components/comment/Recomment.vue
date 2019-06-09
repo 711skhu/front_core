@@ -17,6 +17,13 @@
             </div>
             <div class="comment__info-date">{{comment.date}}</div>
           </div>
+          <div
+            v-show="login_id === comment.id"
+            class="comment-icon"
+            @click="deleteComment"
+          >
+            <v-icon>more_vert</v-icon>
+          </div>
         </div>
         <div class="comment__content">{{comment.content}}</div>
       </div>
@@ -36,9 +43,19 @@
         description: "대댓글 항목"
       }
     },
+    data() {
+      return {
+        login_id : 'heyharoo123' // 현재 로그인 되어 있는 아이디(가정)
+      }
+    },
     computed: {
       identicon: function () {
         return jdenticon.toSvg(this.comment.id, 60);
+      }
+    },
+    methods : {
+      deleteComment() {
+        alert("정말 삭제하시겠습니까?");
       }
     }
   }
@@ -63,6 +80,10 @@
   .comment__info {
     display: flex;
     align-items : center;
+  }
+
+  .comment-icon {
+    margin-left : 3rem;
   }
 
   .comment__info__img {

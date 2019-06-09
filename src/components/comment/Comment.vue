@@ -9,7 +9,14 @@
       </div>
       <div class="container__right">
         <div class="header">
-          <h3>{{ comment.content }}</h3>
+          {{ comment.content }}
+          <span
+            v-show="login_id === comment.id"
+            class="header-icon"
+            @click="deleteComment"
+          >
+            <v-icon>more_vert</v-icon>
+          </span>
         </div>
         <div class="content">
           <div class="content__item">
@@ -66,7 +73,8 @@
     data() {
       return {
         inputComment: '',
-        isRecommentShow: false
+        isRecommentShow: false,
+        login_id : 'hyunee31' //현재 로그인 되어 있는 아이디(가정)
       }
     },
     props: {
@@ -84,6 +92,12 @@
     computed: {
       identicon: function () {
         return jdenticon.toSvg(this.comment.id, 65);
+      }
+    },
+    methods: {
+      deleteComment() {
+        alert("정말 삭제하시겠습니까?");
+        //추후 추가 구현 예정
       }
     }
   }
@@ -109,10 +123,16 @@
 
   .header {
     margin-bottom: 0.3rem;
+    font-size : medium;
+    font-weight : bold;
   }
 
   .header:hover {
     color: #0078FF;
+  }
+
+  .header-icon {
+    float : right;
   }
 
   .content {
