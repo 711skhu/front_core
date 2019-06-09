@@ -9,16 +9,16 @@
       </div>
       <div class="container__right">
         <div class="header">
-          <h3>{{ comment.content }}</h3>
+          <h3>{{ value.content }}</h3>
         </div>
         <div class="content">
           <div class="content__item">
             <v-icon small>perm_identity</v-icon>
-            {{ comment.id }}
+            {{ value.id }}
           </div>
           <div class="content__item">
             <v-icon small>date_range</v-icon>
-            {{ comment.date }}
+            {{ value.date }}
           </div>
           <div class="content__item">
             <v-icon small>comment</v-icon>
@@ -58,6 +58,13 @@
   import CommentItem from '@/models/comment/CommentItem'
   import * as jdenticon from "jdenticon";
 
+  let value = new CommentItem('jijihee123', '2019.06.09 13:34', '시간 초과가 뜨는 이유를 잘 모르겠습니다');
+
+  let recomments = [
+    new CommentItem('heyharoo123', '2019.4.30 09:28', '1,2,3,4,9,11번 케이스만 통과합니다..'),
+    new CommentItem('Cal-D', '2019.4.24 15:12', '이클립스에서는 돌아가는데 프로그래머스 실행시 오류'),
+    new CommentItem('hhwaaaa1', '2019.04.20 23:54', '어떤 부분이 틀렸는지 모르겠어요, 시간이 5ms 이상인 테스트 케이스는 틀렸다고 되어..'),
+  ];
   export default {
     name: "Comment",
     components: {
@@ -65,25 +72,15 @@
     },
     data() {
       return {
+        value: value,
+        recomments: recomments,
         inputComment: '',
         isRecommentShow: false
       }
     },
-    props: {
-      comment: {
-        type: CommentItem,
-        required: true,
-        description: "댓글 항목"
-      },
-      recomments: {
-        type: Array,
-        required: true,
-        description: "대댓글 항목들"
-      }
-    },
     computed: {
       identicon: function () {
-        return jdenticon.toSvg(this.comment.id, 65);
+        return jdenticon.toSvg(this.value.id, 65);
       }
     }
   }

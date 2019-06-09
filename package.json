@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "ace-builds": "^1.4.3",
+    "identicon": "^2.1.2",
+    "jdenticon": "^2.1.1",
     "less": "^2.7.3",
     "lodash": "^4.17.11",
     "marked": "^0.6.2",

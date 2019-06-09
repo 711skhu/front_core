@@ -4,7 +4,7 @@
   </v-app>
 </template>
 <script>
-  import Comment from '@/components/comment/Comment'
+  import Comment from '@/components/comment/CommentInput'
   export default {
     components : {
       Comment

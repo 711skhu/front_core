@@ -25,7 +25,7 @@
     name: "CommentInput",
     data() {
       return {
-        id: 201832001,
+        id: 'dhlgs123',
         inputComment: ''
       }
     },
@@ -47,6 +47,7 @@
   }
   .header {
     font-size: 1.2rem;
+    font-weight : bold;
     margin-bottom: 0.4rem;
   }
   .content {
