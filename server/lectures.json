@@ -1,0 +1,26 @@
+[
+  {
+    "title":"소프 캡스톤",
+    "professor":"이승진"
+  },
+  {
+    "title":"C프로그래밍1",
+    "professor":"유상신"
+  },
+  {
+    "title":"과정지도1",
+    "professor":"홍은지"
+  },
+  {
+    "title":"자료구조",
+    "professor":"노은하"
+  },
+  {
+    "title":"자바프로그래밍",
+    "professor":"노은하"
+  },
+  {
+    "title":"알고리즘",
+    "professor":"이승진"
+  }
+]
