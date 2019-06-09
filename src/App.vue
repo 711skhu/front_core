@@ -6,7 +6,7 @@
 </template>
 <script>
   import Comment from '@/components/comment/Comment'
-  // import Recomment from '@/components/comment/Recomment'
+  // import Recomment from '@/sample/comment/Recomment'
   export default {
     components : {
       Comment
