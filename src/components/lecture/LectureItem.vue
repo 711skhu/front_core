@@ -16,14 +16,12 @@
     components: {
       LectureInfo
     },
-    props: ['lecture'],
-    data() {
-      return {
-        isProfessor: false
+    props: {
+      lecture: {
+        type: Object,
+        required: true,
+        description: "lecture info object"
       }
-    },
-    created() {
-
     }
   }
 
