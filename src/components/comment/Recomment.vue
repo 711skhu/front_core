@@ -18,7 +18,7 @@
             <div class="comment__info-date">{{comment.date}}</div>
           </div>
           <div
-            v-show="login_id === comment.id"
+            v-show="loginId === comment.id"
             class="comment-icon"
             @click="deleteComment"
           >
@@ -45,7 +45,7 @@
     },
     data() {
       return {
-        login_id : 'heyharoo123' // 현재 로그인 되어 있는 아이디(가정)
+        loginId : 'heyharoo123' // 현재 로그인 되어 있는 아이디(가정)
       }
     },
     computed: {

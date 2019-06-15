@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="header">{{ id }}</div>
+  <div class="comment_box">
+    <div class="header">댓글 쓰기</div>
     <div class="content">
       <textarea
         class="content__textarea"
@@ -25,28 +25,32 @@
     name: "CommentInput",
     data() {
       return {
-        id: 'dhlgs123',
         inputComment: ''
       }
     },
-    methods:{
+    methods: {
       addComment() {
-      //  코멘트를 입력받아 서버에 전달
+        //  코멘트를 입력받아 서버에 전달
+        //  서버에서 id, 댓글내용, 저장된 날짜 불러오고, 리댓글은 디폴트값 return
+        //  뷰 상에서는 추가된 댓글 내용이 맨 위에 위치
       }
     }
   }
 </script>
 
 <style scoped>
-  .container {
+  .comment_box {
     height:100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid darkgrey;
+    /*border: 1px solid darkgrey;*/
+    border-bottom : 1px dashed #D7E2EB;
     border-radius: 3px;
+    padding-top : 1rem !important;
+    padding-bottom: 1rem !important;
   }
   .header {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight : bold;
     margin-bottom: 0.4rem;
   }
