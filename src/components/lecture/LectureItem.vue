@@ -10,11 +10,19 @@
 <script>
   import LectureInfo from "@/components/lecture/LectureInfo"
 
+  import axios from 'axios'
+
   export default {
     components: {
       LectureInfo
     },
-    props: ['lecture']
+    props: {
+      lecture: {
+        type: Object,
+        required: true,
+        description: "lecture info object"
+      }
+    }
   }
 
 </script>
@@ -23,5 +31,4 @@
   .padding-24 {
     padding: 24px;
   }
-
 </style>
