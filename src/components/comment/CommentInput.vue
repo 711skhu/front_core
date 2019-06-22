@@ -29,11 +29,20 @@
       }
     },
     methods: {
-      addComment() {
+      addComment: function () {
         //  코멘트를 입력받아 서버에 전달
         //  서버에서 id, 댓글내용, 저장된 날짜 불러오고, 리댓글은 디폴트값 return
-        //  뷰 상에서는 추가된 댓글 내용이 맨 위에 위치
+        //  뷰 상에서는 추가된 댓글 내용이 아래에 위치
+        if (this.inputComment !== "") {
+          let value = this.inputComment && this.inputComment.trim();
+          this.$emit('addComment', value)
+          this.inputClear();
+        }
+      },
+      inputClear() {
+        this.inputComment = '';
       }
+
     }
   }
 </script>
