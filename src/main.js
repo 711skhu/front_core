@@ -8,7 +8,10 @@ import SuiVue from 'semantic-ui-vue';
 
 import 'vuetify/dist/vuetify.min.css'
 
+<<<<<<< HEAD
 import VueSplit from 'vue-split-panel'
+=======
+>>>>>>> feature-v1.1.4-problem-comment
 
 Vue.use(SuiVue);
 Vue.use(Vuetify);

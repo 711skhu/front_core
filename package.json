@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "ace-builds": "^1.4.3",
+<<<<<<< HEAD
     "github-markdown-css": "^3.0.1",
     "axios": "^0.19.0",
+=======
+    "identicon": "^2.1.2",
+    "jdenticon": "^2.1.1",
+>>>>>>> feature-v1.1.4-problem-comment
     "less": "^2.7.3",
     "lodash": "^4.17.11",
     "marked": "^0.6.2",
