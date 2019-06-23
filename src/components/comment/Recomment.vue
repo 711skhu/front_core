@@ -13,19 +13,19 @@
           </div>
           <div class="comment__info__id">
             <div>
-              <h3>{{comment.id}}</h3>
+              <h3>{{item.id}}</h3>
             </div>
-            <div class="comment__info-date">{{comment.date}}</div>
+            <div class="comment__info-date">{{item.date}}</div>
           </div>
           <div
-            v-show="loginId === comment.id"
+            v-show="loginId === item.id"
             class="comment-icon"
             @click="deleteComment"
           >
             <v-icon>more_vert</v-icon>
           </div>
         </div>
-        <div class="comment__content">{{comment.content}}</div>
+        <div class="comment__content">{{item.content}}</div>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
   export default {
     name: "ReComment",
     props: {
-      comment: {
+      item: {
         type: Object,
         required: true,
         description: "대댓글 항목"

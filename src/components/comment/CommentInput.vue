@@ -30,66 +30,69 @@
     },
     methods: {
       addComment: function () {
-        //  코멘트를 입력받아 서버에 전달
-        //  서버에서 id, 댓글내용, 저장된 날짜 불러오고, 리댓글은 디폴트값 return
-        //  뷰 상에서는 추가된 댓글 내용이 아래에 위치
         if (this.inputComment !== "") {
           let value = this.inputComment && this.inputComment.trim();
-          this.$emit('addComment', value)
+          //value를 서버에 전달
           this.inputClear();
         }
       },
       inputClear() {
         this.inputComment = '';
       }
-
     }
   }
 </script>
 
 <style scoped>
   .comment_box {
-    height:100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /*border: 1px solid darkgrey;*/
-    border-bottom : 1px dashed #D7E2EB;
+    border-bottom: 1px dashed #D7E2EB;
     border-radius: 3px;
-    padding-top : 1rem !important;
+    padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
+
   .header {
     font-size: 1rem;
-    font-weight : bold;
+    font-weight: bold;
     margin-bottom: 0.4rem;
   }
+
   .content {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
+
   .content__textarea {
     height: 100%;
     border: 1.5px solid lightgrey;
     border-radius: 2px;
   }
+
   textarea {
     font-size: 1.2rem;
     padding: 10px 10px 10px 10px;
   }
+
   textarea:hover {
     border-color: grey;
   }
+
   .counter {
     display: flex;
     justify-content: flex-end;
   }
+
   .footer {
     display: flex;
     justify-content: flex-end;
   }
+
   .button__register {
-    font-weight : bold;
-    color : white;
+    font-weight: bold;
+    color: white;
   }
 </style>
