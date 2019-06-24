@@ -14,7 +14,9 @@ Vue.use(SuiVue);
 Vue.use(Vuetify);
 Vue.use(VueSplit);
 
+axios.defaults.baseURL= "http://dev.oj.shouwn.com";
 Vue.prototype.$http = axios;
+Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',
