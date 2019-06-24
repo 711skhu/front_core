@@ -7,8 +7,6 @@ import 'semantic-ui-less/semantic.less'
 import SuiVue from 'semantic-ui-vue';
 
 import 'vuetify/dist/vuetify.min.css'
-
-
 import VueSplit from 'vue-split-panel'
 
 Vue.use(SuiVue);
