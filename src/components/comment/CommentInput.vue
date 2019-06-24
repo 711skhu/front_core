@@ -1,6 +1,5 @@
 <template>
   <div class="comment_box">
-    <div class="header">댓글 쓰기</div>
     <div class="content">
       <textarea
         class="content__textarea"
@@ -29,7 +28,7 @@
       }
     },
     methods: {
-      addComment: function () {
+      addComment() {
         if (this.inputComment !== "") {
           let value = this.inputComment && this.inputComment.trim();
           //value를 서버에 전달
@@ -50,14 +49,7 @@
     flex-direction: column;
     border-bottom: 1px dashed #D7E2EB;
     border-radius: 3px;
-    padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-  }
-
-  .header {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 0.4rem;
   }
 
   .content {
@@ -78,7 +70,7 @@
   }
 
   textarea:hover {
-    border-color: grey;
+    border-color: #0078FF;
   }
 
   .counter {

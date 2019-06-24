@@ -13,19 +13,19 @@
           </div>
           <div class="comment__info__id">
             <div>
-              <h3>{{item.id}}</h3>
+              <h3>{{recomment.userName}}</h3>
             </div>
-            <div class="comment__info-date">{{item.date}}</div>
+            <div class="comment__info-date">{{recomment.date}}</div>
           </div>
           <div
-            v-show="loginId === item.id"
+            v-show="loginId === recomment.userName"
             class="comment-icon"
             @click="deleteComment"
           >
             <v-icon>more_vert</v-icon>
           </div>
         </div>
-        <div class="comment__content">{{item.content}}</div>
+        <div class="comment__content">{{recomment.content}}</div>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@
   export default {
     name: "ReComment",
     props: {
-      item: {
+      recomment : {
         type: Object,
         required: true,
         description: "대댓글 항목"
@@ -50,7 +50,7 @@
     },
     computed: {
       identicon: function () {
-        return jdenticon.toSvg(this.comment.id, 60);
+        return jdenticon.toSvg(this.recomment.userName, 60);
       }
     },
     methods : {

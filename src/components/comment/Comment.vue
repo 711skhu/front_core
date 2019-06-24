@@ -11,7 +11,7 @@
         <div class="header">
           {{ comment.content }}
           <span
-            v-show="login_id === comment.id"
+            v-show="loginId === comment.userName"
             class="header-icon"
             @click="deleteComment"
           >
@@ -21,7 +21,7 @@
         <div class="content">
           <div class="content__item">
             <v-icon small>perm_identity</v-icon>
-            {{ comment.id }}
+            {{ comment.userName }}
           </div>
           <div class="content__item">
             <v-icon small>date_range</v-icon>
@@ -37,23 +37,12 @@
     <div class="container__lower">
       <div v-show="isRecommentShow">
         <recomment
-          v-for="comment in recomments"
-          :comment="comment"
+          v-for="recomment in recomments"
+          :recomment="recomment"
         />
         <div class="comment__box">
           <h3>답변 쓰기</h3>
-          <textarea
-            class="content__textarea"
-            maxlength="500"
-            v-model="inputComment"
-            placeholder="질문을 작성하세요.">
-          </textarea>
-          <v-btn
-            class="button__register"
-            medium
-            color=#0078FF
-            @click="addComment">등록
-          </v-btn>
+          <comment-input></comment-input>
         </div>
       </div>
     </div>
@@ -62,19 +51,21 @@
 
 <script>
   import Recomment from '@/components/comment/Recomment'
+  import CommentInput from '@/components/comment/CommentInput'
   import CommentItem from '@/models/comment/CommentItem'
   import * as jdenticon from "jdenticon";
 
   export default {
     name: "Comment",
     components: {
-      Recomment
+      Recomment,
+      CommentInput
     },
     data() {
       return {
         inputComment: '',
         isRecommentShow: false,
-        login_id : 'hyunee31' //현재 로그인 되어 있는 아이디(가정)
+        loginId: 'hyunee31' //현재 로그인 되어 있는 아이디(가정)
       }
     },
     props: {
@@ -91,7 +82,7 @@
     },
     computed: {
       identicon: function () {
-        return jdenticon.toSvg(this.comment.id, 65);
+        return jdenticon.toSvg(this.comment.userName, 65);
       }
     },
     methods: {
@@ -123,8 +114,8 @@
 
   .header {
     margin-bottom: 0.3rem;
-    font-size : medium;
-    font-weight : bold;
+    font-size: medium;
+    font-weight: bold;
   }
 
   .header:hover {
@@ -132,7 +123,7 @@
   }
 
   .header-icon {
-    float : right;
+    float: right;
   }
 
   .content {
@@ -153,27 +144,5 @@
   .comment__box {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  .content__textarea {
-    height: 100%;
-    width: 100%;
-    border: 1.5px solid lightgrey;
-    border-radius: 2px;
-  }
-
-  textarea {
-    font-size: 1.2rem;
-    padding: 10px 10px 10px 10px;
-  }
-
-  textarea:hover {
-    border-color: grey;
-  }
-
-  .button__register {
-    float: right;
-    font-weight: bold;
-    color: white;
   }
 </style>
